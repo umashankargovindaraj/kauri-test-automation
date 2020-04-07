@@ -1,0 +1,14 @@
+version: "3"
+services:
+  onlineReports-ios-iPhoneXR_12_1.1.9 :
+    image: 10.0.3.5:5000/sdt-automation:latest
+    environment:
+      - DEVICE_KEY=iPhoneXR_12_1.1.9
+      - TAG=ddd
+      - MODULE=pega-OnlineForm-mobile.xml
+  onlineReports-android-SamsungGalaxyS9_8.1_1.1.9:
+    image: 10.0.3.5:5000/sdt-automation:latest
+    environment:
+      - DEVICE_KEY=SamsungGalaxyS9_8.1_1.1.9
+      - TAG=ddd
+      - MODULE=pega-OnlineForm-mobile.xml

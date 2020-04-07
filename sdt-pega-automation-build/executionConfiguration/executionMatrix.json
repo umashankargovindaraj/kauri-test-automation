@@ -1,0 +1,52 @@
+{
+  "e2eHurtMobile": [
+    "iPhoneXS_12_1.1.14",
+    "SamsungGalaxyS8_7.0_1.13.0",
+    "SamsungGalaxyS9_8.0_1.13.0"
+  ],
+  "e2eDamagedMobile": [
+    "GooglePixel2_9.0_1.13.0",
+    "SamsungGalaxyTabS4_8.1_1.13.0",
+    "iPadPro12.9.2018_12_1.1.14"
+  ],
+  "e2eStolenMobile": [
+    "iPhoneXSMax_12_1.1.14",
+    "SamsungGalaxyS10_9.0_1.13.0",
+    "SamsungGalaxyS8_7.0_1.13.0"
+  ],
+  "e2eSomethingElseMobile": [
+    "SamsungGalaxyNote9_8.1_1.13.0",
+    "SamsungGalaxyS9Plus_9.0_1.13.0",
+    "iPhone7_10_1.1.10"
+  ],
+  "e2eLostMobile": [
+    "iPhoneX_11_1.1.14",
+    "SamsungGalaxyS10Plus_9.0_1.13.0",
+    "OnePlus7_9.0_1.13.0",
+    "GooglePixel3a_9.0_1.13.0",
+    "iPad.Mini.2019_12_1.1.14"
+  ],
+  "e2eHurtWeb": [
+    "Windows10_Chrome_78",
+    "Mac_Chrome_77"
+  ],
+  "e2eStolenWeb": [
+    "Mac_Chrome_77",
+    "Windows8.1_FireFox_71"
+  ],
+  "e2eDamagedWeb": [
+    "Windows8.1_IE_11",
+    "Windows10_FireFox_71",
+    "Windows10_Chrome_78"
+  ],
+  "e2eSomethingElseWeb": [
+    "Windows8.1_IE_11",
+    "Windows8.1_FireFox_71"
+  ],
+  "e2eLostWeb": [
+    "Windows10_Chrome_78",
+    "Windows10_FireFox_71"
+  ]
+}
+
+

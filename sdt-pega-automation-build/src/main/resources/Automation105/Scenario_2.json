@@ -1,0 +1,59 @@
+{
+  "eventTime": {
+    "startDate": "01/01/2020",
+    "startTime": "12:00 AM",
+    "endDate": "01/01/2020",
+    "endTime": "1:00 AM"
+  },
+  "eventLocation": {
+    "locationType": "An organisation",
+    "nameOfOrganisation": "Test Organisation",
+    "address": "180 MOLESWORTH STREET, THORNDON, WELLINGTON CITY 6011",
+    "proximity": "At",
+    "additionalDetails": "Testing additional details of location for scenario 2. Testing additional details of location for scenario 2. Testing additional details of location for scenario 2. Testing additional details of location for scenario 2. Testing additional details of location for scenario 2. Testing additional details of location for scenario 2. Testing additional details of location for scenario 2. Testing additional details of location for scenario 2. Testing additional details of location for scenario 2."
+  },
+  "lostItem": {
+    "whatWasLost": "Wallet",
+    "whoOwnsIt": "I do",
+    "ID": "serialNumberOfLostItem",
+    "valueOfItem": "1000",
+    "describeLostItem": "This is a description of item that was lost in scenario 2. This is a description of item that was lost in scenario 2. This is a description of item that was lost in scenario 2.This is a description of item that was lost in scenario 2. scenario 2 test"
+  },
+  "whatHappened": {
+    "describeWhatHappened": "This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. This is a description of what happened on how the item was lost in scenario 2. "
+  },
+  "attachmentsDOC": {
+    "fileName": "Sample_DOC.doc",
+    "description": "attachmentDOCDescription1"
+  },
+  "attachmentsJPEG": {
+    "fileName": "Sample_JPEG.JPEG",
+    "description": "attachmentJPEGDescription2"
+  },
+  "attachmentsPDF": {
+    "fileName": "Sample_PDF.pdf",
+    "description": "attachmentPDFDescription3"
+  },
+  "attachmentDescription": {
+    "description": "Testing attachment description"
+  },
+  "reporterDetails": {
+    "firstName": "Duke",
+    "middleName": "John",
+    "lastName": "Cameroon",
+    "previousFirstName": "pDuke",
+    "previousMiddleName": "pJohn",
+    "previousLastName": "pCameroon",
+    "dob": "03/01/1957",
+    "gender": "Male",
+    "driverLicence": "ABCD1234",
+    "preferredContact": "Phone",
+    "emailAddress": "rijuvijayan@gmail.com",
+    "phoneType": "Work",
+    "countryCode": "New Zealand - 64",
+    "area": "223",
+    "phoneNumber": "54332",
+    "addressType": "Home address",
+    "address": "2321 OMAKAU-CHATTO CREEK ROAD, OMAKAU, CENTRAL OTAGO DISTRICT 9376"
+  }
+}

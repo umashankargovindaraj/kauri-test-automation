@@ -1,0 +1,212 @@
+{
+  "eventTime": {
+    "startDate": "skip",
+    "startTime": "skip",
+    "endDate": "skip",
+    "endTime": "skip"
+  },
+  "eventLocation": {
+    "locationType": "LocationType.LocationTypeIndicator",
+    "nameOfShop": "LocationType.LocationDetails.LocationName",
+    "address": "LocationType.LocationDetails.Address.AddressCSV",
+    "proximity": "LocationType.LocationDetails.Proximity",
+    "additionalDetails": "LocationType.LocationDetails.AdditonalLocationInfo"
+  },
+  "whoWasInvolved": {
+    "whoHasDoneThis": {
+      "value": "Offender.KnownIndicator",
+      "detailAboutOffender": "Offender.Description",
+      "personIs": "skip",
+      "other": "skip"
+    },
+    "describePerson": {
+      "value": "Offender.DescriptionQuestion"
+    },
+    "offenderVehicle": {
+      "value": "Offender.SeenOffender"
+    },
+    "witnessInformation": {
+      "value": "Offender.Witness.WitnessIndicator"
+    }
+  },
+  "damagedVehicles_1": {
+    "value": "skip",
+    "licencePlate": "DamagedVehicle[0].Registration",
+    "damagedVehicleLocation": "skip",
+    "owner": {
+      "value": "DamagedVehicle[0].WhoOwnsIt",
+      "firstName": "skip",
+      "middleName": "skip",
+      "lastName": "skip",
+      "organisationName": "skip"
+    },
+    "whereWasVehicleWhenDamaged": "DamagedVehicle[0].VehicleLocation",
+    "vehicleMoved": "DamagedVehicle[0].MovedTampered",
+    "ignitionTampered": "DamagedVehicle[0].VehicleTampered",
+    "howWasItDamaged": "DamagedVehicle[0].Description",
+    "howAndWhereOnTheVehicleWasItDamaged": "skip",
+    "vehicleType": "DamagedVehicle[0].VehicleType",
+    "vehicleMake": "DamagedVehicle[0].Make",
+    "identifyingFeatures": "DamagedVehicle[0].VehicleDescription"
+  },
+  "damagedVehicles_2": {
+    "licencePlate": "DamagedVehicle[1].Registration",
+    "owner": {
+      "value": "DamagedVehicle[1].WhoOwnsIt",
+      "firstName": "DamagedVehicle[1].SomebodyOwns.FirstName",
+      "middleName": "DamagedVehicle[1].SomebodyOwns.MiddleName",
+      "lastName": "DamagedVehicle[1].SomebodyOwns.SurName",
+      "age": "DamagedVehicle[1].SomebodyOwns.AgeOrBirth",
+      "gender": "DamagedVehicle[1].SomebodyOwns.Gender",
+      "howAreTheyRelated": "DamagedVehicle[1].SomebodyOwns.Relation",
+      "emailAddress": "skip",
+      "phoneType": "DamagedVehicle[1].SomebodyOwns.Phones[0].PhoneType",
+      "country": "skip",
+      "area": "DamagedVehicle[1].SomebodyOwns.Phones[0].AreaCodeText",
+      "number": "DamagedVehicle[1].SomebodyOwns.Phones[0].PhoneNumberText",
+      "addressType": "DamagedVehicle[1].SomebodyOwns.AddressType",
+      "victimSupportFlag": "DamagedVehicle[1].SomebodyOwns.VictimSupport",
+      "manualAddress": {
+        "unitType": "DamagedVehicle[1].SomebodyOwns.FreeFormAddress.UnitType",
+        "unitNumber": "DamagedVehicle[1].SomebodyOwns.FreeFormAddress.UnitNumber",
+        "streetNumber": "DamagedVehicle[1].SomebodyOwns.FreeFormAddress.StreetNumber",
+        "streetName": "DamagedVehicle[1].SomebodyOwns.FreeFormAddress.StreetName",
+        "streetType": "DamagedVehicle[1].SomebodyOwns.FreeFormAddress.StreetType",
+        "streetDirection": "DamagedVehicle[1].SomebodyOwns.FreeFormAddress.StreetDirectionSuffix",
+        "townSuburb": "DamagedVehicle[1].SomebodyOwns.FreeFormAddress.TownSuburb"
+      }
+    },
+    "whereWasVehicleWhenDamaged": "DamagedVehicle[1].VehicleLocation",
+    "vehicleMoved": "DamagedVehicle[1].MovedTampered",
+    "ignitionTampered": "DamagedVehicle[1].VehicleTampered",
+    "howWasItDamaged": "DamagedVehicle[1].Description",
+    "vehicleType": "DamagedVehicle[1].VehicleType",
+    "vehicleMake": "DamagedVehicle[1].Make",
+    "identifyingFeatures": "DamagedVehicle[1].VehicleDescription"
+  },
+  "damagedVehicles_3": {
+    "licencePlate": "DamagedVehicle[2].Registration",
+    "owner": {
+      "value": "DamagedVehicle[2].WhoOwnsIt",
+      "organisationName": "DamagedVehicle[2].OrganisationOwn.Organization.OrganisationName",
+      "phoneType": "DamagedVehicle[2].OrganisationOwn.Phones[0].PhoneType",
+      "country": "skip",
+      "area": "DamagedVehicle[2].OrganisationOwn.Phones[0].AreaCodeText",
+      "number": "DamagedVehicle[2].OrganisationOwn.Phones[0].PhoneNumberText",
+      "manualAddress": {
+        "unitType": "DamagedVehicle[2].OrganisationOwn.FreeFormAddress.UnitType",
+        "unitNumber": "DamagedVehicle[2].OrganisationOwn.FreeFormAddress.UnitNumber",
+        "streetNumber": "DamagedVehicle[2].OrganisationOwn.FreeFormAddress.StreetNumber",
+        "streetName": "DamagedVehicle[2].OrganisationOwn.FreeFormAddress.StreetName",
+        "streetType": "DamagedVehicle[2].OrganisationOwn.FreeFormAddress.StreetType",
+        "streetDirection": "DamagedVehicle[2].OrganisationOwn.FreeFormAddress.StreetDirectionSuffix",
+        "townSuburb": "DamagedVehicle[2].OrganisationOwn.FreeFormAddress.TownSuburb"
+      }
+    },
+    "whereWasVehicleWhenDamaged": "DamagedVehicle[2].VehicleLocation",
+    "vehicleMoved": "DamagedVehicle[2].MovedTampered",
+    "ignitionTampered": "DamagedVehicle[2].VehicleTampered",
+    "howWasItDamaged": "DamagedVehicle[2].Description",
+    "vehicleType": "DamagedVehicle[2].VehicleType",
+    "vehicleMake": "DamagedVehicle[2].Make",
+    "identifyingFeatures": "DamagedVehicle[2].VehicleDescription"
+  },
+  "damagedItem_1": {
+    "damagedItem": "skip",
+    "damagedItemManual": "Properties[0].PropertyType",
+    "owner": {
+      "value": "Properties[0].WhoOwnsIt"
+    },
+    "howWasItDamaged": "Properties[0].DamageDescription"
+  },
+  "damagedItem_2": {
+    "damagedItem": "Properties[1].PropertyType",
+    "owner": {
+      "value": "Properties[1].WhoOwnsIt",
+      "firstName": "Properties[1].SomebodyOwns.FirstName",
+      "middleName": "Properties[1].SomebodyOwns.MiddleName",
+      "lastName": "Properties[1].SomebodyOwns.SurName",
+      "age": "Properties[1].SomebodyOwns.AgeOrBirth",
+      "gender": "Properties[1].SomebodyOwns.Gender",
+      "howAreTheyRelated": "Properties[1].SomebodyOwns.Relation",
+      "emailAddress": "skip",
+      "phoneType": "Properties[1].SomebodyOwns.Phones[0].PhoneType",
+      "country": "skip",
+      "area": "Properties[1].SomebodyOwns.Phones[0].AreaCodeText",
+      "number": "Properties[1].SomebodyOwns.Phones[0].PhoneNumberText",
+      "addressType": "Properties[1].SomebodyOwns.AddressType",
+      "victimSupportFlag": "Properties[1].SomebodyOwns.VictimSupport",
+      "manualAddress": {
+        "unitType": "Properties[1].SomebodyOwns.FreeFormAddress.UnitType",
+        "unitNumber": "Properties[1].SomebodyOwns.FreeFormAddress.UnitNumber",
+        "streetNumber": "Properties[1].SomebodyOwns.FreeFormAddress.StreetNumber",
+        "streetName": "Properties[1].SomebodyOwns.FreeFormAddress.StreetName",
+        "streetType": "Properties[1].SomebodyOwns.FreeFormAddress.StreetType",
+        "streetDirection": "Properties[1].SomebodyOwns.FreeFormAddress.StreetDirectionSuffix",
+        "townSuburb": "Properties[1].SomebodyOwns.FreeFormAddress.TownSuburb"
+      }
+    },
+    "howWasItDamaged": "Properties[1].DamageDescription"
+  },
+  "damagedItem_3": {
+    "damagedItem": "Properties[2].NIAItemName",
+    "owner": {
+      "value": "Properties[2].WhoOwnsIt",
+      "organisationName": "Properties[2].OrganisationOwn.Organization.OrganisationName",
+      "phoneType": "Properties[2].OrganisationOwn.Phones[0].PhoneType",
+      "country": "skip",
+      "area": "Properties[2].OrganisationOwn.Phones[0].AreaCodeText",
+      "number": "Properties[2].OrganisationOwn.Phones[0].PhoneNumberText",
+      "manualAddress": {
+        "unitType": "Properties[2].OrganisationOwn.FreeFormAddress.UnitType",
+        "unitNumber": "Properties[2].OrganisationOwn.FreeFormAddress.UnitNumber",
+        "streetNumber": "Properties[2].OrganisationOwn.FreeFormAddress.StreetNumber",
+        "streetName": "Properties[2].OrganisationOwn.FreeFormAddress.StreetName",
+        "streetType": "Properties[2].OrganisationOwn.FreeFormAddress.StreetType",
+        "streetDirection": "Properties[2].OrganisationOwn.FreeFormAddress.StreetDirectionSuffix",
+        "townSuburb": "Properties[2].OrganisationOwn.FreeFormAddress.TownSuburb"
+      }
+    },
+    "howWasItDamaged": "Properties[2].DamageDescription",
+    "damagedItemManual": "skip"
+  },
+  "whatHappened": {
+    "describeWhatHappened": "Narrative.NarrativeText",
+    "reasonWhyTheyDidThis": "Narrative.ReasonWhy"
+  },
+  "attachmentsXLSX": {
+    "fileName": "FileUpload[0].pyFileName",
+    "description": "FileUpload[0].pyNote"
+  },
+  "attachmentsCSV": {
+    "fileName": "FileUpload[1].pyFileName",
+    "description": "FileUpload[1].pyNote"
+  },
+  "attachmentsPPT": {
+    "fileName": "FileUpload[2].pyFileName",
+    "description": "FileUpload[2].pyNote"
+  },
+  "attachmentDescription": {
+    "description": "CCTVFootageAttachmentDescription"
+  },
+  "reporterDetails": {
+    "firstName": "Person.FirstName",
+    "middleName": "Person.MiddleName",
+    "lastName": "Person.SurName",
+    "previousFirstName": "Person.AlternativeName.FirstName",
+    "previousMiddleName": "Person.AlternativeName.MiddleName",
+    "previousLastName": "Person.AlternativeName.LastName",
+    "dob": "skip",
+    "gender": "Person.Gender",
+    "driverLicence": "Person.LicenseNumber",
+    "preferredContact": "Person.PreferedContact",
+    "emailAddress": "Person.EmailAddress[0].Email.pxObjClass",
+    "phoneType": "Person.Phones[0].PhoneType",
+    "countryCode": "skip",
+    "area": "Person.Phones[0].AreaCodeText",
+    "phoneNumber": "Person.Phones[0].PhoneNumberText",
+    "addressType": "Person.AddressType",
+    "address": "Person.Address.AddressCSV",
+    "victimSupport": "Person.VictimSupport"
+  }
+}

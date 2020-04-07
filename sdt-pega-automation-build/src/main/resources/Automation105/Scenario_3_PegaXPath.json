@@ -1,0 +1,245 @@
+{
+  "eventTime": {
+    "startDate": "skip",
+    "startTime": "skip",
+    "endDate": "skip",
+    "endTime": "skip"
+  },
+  "eventLocation": {
+    "locationType": "LocationType.LocationTypeIndicator",
+    "nameOfOrganisation": "LocationType.LocationDetails.LocationName",
+    "address": "LocationType.LocationDetails.Address.AddressCSV",
+    "proximity": "LocationType.LocationDetails.Proximity",
+    "additionalDetails": "LocationType.LocationDetails.AdditonalLocationInfo",
+    "isVehicleStoleIndicator": "Stolenfromavehicleindicator",
+    "stolenFromVehicle": {
+      "licencePlate": "Property.PropertyVehicle.Registration",
+      "vehicleLocation": "Property.PropertyVehicle.VehicleLocation"
+    }
+
+  },
+  "whereDidItHappen": {
+    "stolenFromVehicle": {
+      "value": "skip"
+    }
+  },
+  "whoWasInvolved": {
+    "whoHasDoneThis": {
+      "value": "Offender.KnownIndicator",
+      "detailAboutOffender": "Offender.Description",
+      "personIs": "skip",
+      "other": "skip"
+    },
+    "describePerson": {
+      "value": "Offender.DescriptionQuestion",
+      "descriptionOfOffender": "Offender.OffenderDescription"
+    },
+    "offenderVehicle": {
+      "value": "Offender.SeenOffender",
+      "licencePlate": "Offender.VehicleRegistration",
+      "vehicleLooks": "Offender.VehicleDescription"
+    },
+    "witnessInformation": {
+      "value": "Offender.Witness.WitnessIndicator",
+      "witnessDetails": "Offender.Witness.NameContact"
+    }
+  },
+  "damagedVehicles_1": {
+    "value": "skip",
+    "licencePlate": "DamagedVehicle[0].Registration",
+    "damagedVehicleLocation": "skip",
+    "owner": {
+      "value": "DamagedVehicle[0].WhoOwnsIt",
+      "firstName": "skip",
+      "middleName": "skip",
+      "lastName": "skip",
+      "organisationName": "skip"
+    },
+    "whereWasVehicleWhenDamaged": "DamagedVehicle[0].VehicleLocation",
+    "vehicleMoved": "DamagedVehicle[0].MovedTampered",
+    "ignitionTampered": "DamagedVehicle[0].VehicleTampered",
+    "howWasItDamaged": "DamagedVehicle[0].Description",
+    "howAndWhereOnTheVehicleWasItDamaged": "skip",
+    "vehicleType": "DamagedVehicle[0].VehicleType",
+    "vehicleMake": "DamagedVehicle[0].Make",
+    "identifyingFeatures": "DamagedVehicle[0].VehicleDescription"
+  },
+  "damagedVehicles_2": {
+    "value": "skip",
+    "licencePlate": "DamagedVehicle[1].Registration",
+    "damagedVehicleLocation": "skip",
+    "owner": {
+      "value": "DamagedVehicle[1].WhoOwnsIt",
+      "organisationName": "DamagedVehicle[1].Organization.OrganisationName"
+    },
+    "whereWasVehicleWhenDamaged": "DamagedVehicle[1].VehicleLocation",
+    "vehicleMoved": "DamagedVehicle[1].MovedTampered",
+    "ignitionTampered": "DamagedVehicle[1].VehicleTampered",
+    "howWasItDamaged": "DamagedVehicle[1].Description",
+    "howAndWhereOnTheVehicleWasItDamaged": "skip",
+    "vehicleType": "DamagedVehicle[1].VehicleType",
+    "vehicleMake": "DamagedVehicle[1].Make",
+    "identifyingFeatures": "DamagedVehicle[1].VehicleDescription"
+  },
+  "damagedVehicles_3": {
+    "value": "skip",
+    "licencePlate": "DamagedVehicle[2].Registration",
+    "damagedVehicleLocation": "skip",
+    "owner": {
+      "value": "DamagedVehicle[2].WhoOwnsIt",
+      "firstName": "DamagedVehicle[2].Owner.Fname",
+      "middleName": "DamagedVehicle[2].Owner.Mname",
+      "lastName": "DamagedVehicle[2].Owner.Sname"
+    },
+    "whereWasVehicleWhenDamaged": "DamagedVehicle[2].VehicleLocation",
+    "vehicleMoved": "DamagedVehicle[2].MovedTampered",
+    "ignitionTampered": "DamagedVehicle[2].VehicleTampered",
+    "howWasItDamaged": "DamagedVehicle[2].Description",
+    "howAndWhereOnTheVehicleWasItDamaged": "skip",
+    "vehicleType": "DamagedVehicle[2].VehicleType",
+    "vehicleMake": "DamagedVehicle[2].Make",
+    "identifyingFeatures": "DamagedVehicle[2].VehicleDescription"
+  },
+  "damagedItem_1": {
+    "damagedItem": "Properties[0].NIAItemName",
+    "owner": {
+      "value": "Properties[0].WhoOwnsIt"
+    },
+    "howWasItDamaged": "Properties[0].DamageDescription"
+  },
+  "damagedItem_2": {
+    "damagedItem": "Properties[1].NIAItemName",
+    "owner": {
+      "value": "Properties[1].WhoOwnsIt",
+      "firstName": "Properties[1].Owner.Fname",
+      "middleName": "Properties[1].Owner.Mname",
+      "lastName": "Properties[1].Owner.Sname"
+    },
+    "howWasItDamaged": "Properties[1].DamageDescription"
+  },
+  "damagedItem_3": {
+    "damagedItem": "Properties[2].NIAItemName",
+    "owner": {
+      "value": "Properties[2].WhoOwnsIt",
+      "organisationName": "Properties[2].Organization.OrganisationName"
+    },
+    "howWasItDamaged": "Properties[2].DamageDescription",
+    "damagedItemManual": "skip"
+  },
+  "stolenVehicles_1": {
+    "licencePlate": "StolenVehicle[0].Registration",
+    "stolenLocation": "StolenVehicle[0].VehicleLocation",
+    "owner": {
+      "value": "StolenVehicle[0].WhoOwnsIt"
+    },
+    "vehicleType": "StolenVehicle[0].VehicleType",
+    "vehicleMake": "StolenVehicle[0].Make",
+    "identifyingFeatures": "StolenVehicle[0].VehicleDescription"
+  },
+  "stolenVehicles_2": {
+    "licencePlate": "StolenVehicle[1].Registration",
+    "stolenLocation": "StolenVehicle[1].VehicleLocation",
+    "owner": {
+      "value": "StolenVehicle[1].WhoOwnsIt",
+      "firstName": "StolenVehicle[1].Owner.Fname",
+      "middleName": "StolenVehicle[1].Owner.Mname",
+      "lastName": "StolenVehicle[1].Owner.Sname"
+    },
+    "vehicleType": "StolenVehicle[1].VehicleType",
+    "vehicleMake": "StolenVehicle[1].Make",
+    "identifyingFeatures": "StolenVehicle[1].VehicleDescription"
+  },
+  "stolenVehicles_3": {
+    "licencePlate": "StolenVehicle[2].Registration",
+    "stolenLocation": "StolenVehicle[2].VehicleLocation",
+    "owner": {
+      "value": "StolenVehicle[2].WhoOwnsIt",
+      "organisationName": "StolenVehicle[2].Organization.OrganisationName"
+    },
+    "vehicleType": "StolenVehicle[2].VehicleType",
+    "vehicleMake": "StolenVehicle[2].Make",
+    "identifyingFeatures": "StolenVehicle[2].VehicleDescription"
+  },
+  "stolenItem_1": {
+    "stolenItem": "Item[0].ItemName",
+    "owner": {
+      "value": "Item[0].WhoOwnsIt"
+    },
+    "itemID": "Item[0].SerialNumber",
+    "itemValue": "Item[0].ItemValueDoller",
+    "description": "Item[0].ItemDescription"
+  },
+  "stolenItem_2": {
+    "stolenItem": "Item[1].ItemName",
+    "owner": {
+      "value": "Item[1].WhoOwnsIt",
+      "firstName": "Item[1].Owner.Fname",
+      "middleName": "Item[1].Owner.Mname",
+      "lastName": "Item[1].Owner.Sname"
+    },
+    "itemID": "Item[1].SerialNumber",
+    "itemValue": "Item[1].ItemValueDoller",
+    "description": "Item[1].ItemDescription"
+  },
+  "stolenItem_3": {
+    "stolenItem": "Item[2].ItemName",
+    "owner": {
+      "value": "Item[2].WhoOwnsIt",
+      "organisationName": "Item[2].OrganizationItem.OrganisationName"
+    },
+    "itemID": "Item[2].SerialNumber",
+    "itemValue": "Item[2].ItemValueDoller",
+    "description": "Item[2].ItemDescription"
+  },
+  "whoWasHurt": {
+    "whoWasHurt": "Assault.WhoInjured ",
+    "howWasHurt": "Assault.HowInjured"
+  },
+  "whatHappened": {
+    "describeWhatHappened": "Narrative.NarrativeText",
+    "reasonWhyTheyDidThis": "Narrative.ReasonWhy"
+  },
+  "attachmentDescription": {
+    "description": "CCTVFootageAttachmentDescription "
+  },
+  "reporterDetails": {
+    "firstName": "Person.FirstName",
+    "middleName": "Person.MiddleName",
+    "lastName": "Person.SurName",
+    "previousFirstName": "Person.AlternativeName.FirstName",
+    "previousMiddleName": "Person.AlternativeName.MiddleName",
+    "previousLastName": "Person.AlternativeName.LastName",
+    "dob": "skip",
+    "gender": "Person.Gender",
+    "driverLicence": "Person.LicenseNumber",
+    "preferredContact": "Person.PreferedContact",
+    "emailAddress": "Person.EmailAddress[0].Email.pxObjClass",
+    "phoneType": "Person.Phones[0].PhoneType",
+    "countryCode": "skip",
+    "area": "Person.Phones[0].AreaCodeText",
+    "phoneNumber": "Person.Phones[0].PhoneNumberText",
+    "addressType": "Person.AddressType",
+    "address": "Person.Address.AddressCSV",
+    "victimSupport": "Person.VictimSupport"
+  },
+  "organisationDetails": {
+    "phoneType": "OrganizationDoes[0].Phones[0].PhoneType",
+    "countryCode": "skip",
+    "area": "OrganizationDoes[0].Phones[0].AreaCodeText",
+    "phoneNumber": "OrganizationDoes[0].Phones[0].PhoneNumberText",
+    "address1": "OrganizationDoes[0].Address.AddressCSV"
+  },
+  "ownerDetails": {
+    "ownerAge": "SomebodyElse[0].AgeOrBirth",
+    "gender": "SomebodyElse[0].Gender",
+    "emailAddress": "SomebodyElse[0].EmailAddress[0].Email.pxObjClass",
+    "phoneType": "SomebodyElse[0].Phones[0].PhoneType",
+    "countryCode": "skip",
+    "area": "SomebodyElse[0].Phones[0].AreaCodeText",
+    "phoneNumber": "SomebodyElse[0].Phones[0].PhoneNumberText",
+    "addressType": "SomebodyElse[0].AddressType",
+    "address": "SomebodyElse[0].Address.AddressCSV",
+    "victimSupport": "SomebodyElse[0].VictimSupport",
+    "relationshipToReporter": "SomebodyElse[0].Relation"
+  }
+}

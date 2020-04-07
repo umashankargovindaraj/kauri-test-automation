@@ -1,0 +1,24 @@
+node {
+   def mvnHome
+   def app
+   stage('Preparation') {
+      git credentialsId: 'github', url: 'git@github.com:service-delivery-sdtdt/sdt-test-automation.git'
+      //mvnHome = tool '3.6.0'
+   }
+   stage('Package') {
+      dir('sdt-pega-automation-build'){
+        sh 'mvn clean package -DskipTests'
+      }
+   }
+   stage('Build') {
+     dir('sdt-pega-automation-build'){
+         app = docker.build "sdt/pega-automated-tests"
+     }
+  }
+  stage('Push') {
+    docker.withRegistry('http://10.0.3.5:5000') {
+    app.push("${BUILD_NUMBER}")
+    app.push("latest")
+    }
+  }
+}

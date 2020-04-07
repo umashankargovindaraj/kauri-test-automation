@@ -1,0 +1,11 @@
+.idea
+.settings
+.project
+.classpath
+**/**/*.iml
+files/
+*/test-output/
+**/**/test*.java
+**/.zshrc*
+*/bin/*
+*/TestResults/*.json

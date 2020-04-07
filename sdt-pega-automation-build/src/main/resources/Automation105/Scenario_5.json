@@ -1,0 +1,59 @@
+{
+  "eventTime": {
+    "startDate": "01/01/2020",
+    "startTime": "12:00 AM"
+  },
+  "eventLocation": {
+    "locationType": "An organisation",
+    "nameOfOrganisation": "Test Organisation",
+    "manualAddress": {
+      "unitType": "Penthouse",
+      "unitNumber": "123",
+      "streetNumber": "33A",
+      "streetName": "cecil road",
+      "streetType": "Road Extension",
+      "streetDirection": "North East",
+      "townSuburb": "Richmond, Waitaki District"
+    },
+    "proximity": "Nearby",
+    "additionalDetails": "Testing additional details of location for scenario 5. Testing additional details of location for scenario 5. Testing additional details of location for scenario 5. Testing additional details of location for scenario 5. Testing additional details of location for scenario 5. Testing additional details of location for scenario 5. Testing additional details of location for scenario 5. Testing additional details of location for scenario 5. Testing additional details of location for scenario 5."
+  },
+  "whatHappened": {
+    "describeWhatHappened": "This is a description of what happened on how the item was lost in scenario 5. This is a description of what happened on how the item was lost in scenario 5."
+  },
+  "attachmentsJPE": {
+    "fileName": "Sample_JPE.jpe",
+    "description": "attachmentJPEDescription1"
+  },
+  "attachmentsGIF": {
+    "fileName": "Sample_GIF.gif",
+    "description": "attachmentJPGDescription2"
+  },
+  "attachmentsDOC": {
+    "fileName": "Sample_DOC.doc",
+    "description": "attachmentDOCDescription3"
+  },
+  "attachmentDescription": {
+    "description": "Testing attachment description"
+  },
+  "reporterDetails": {
+    "firstName": "Jo",
+    "middleName": "Thomson",
+    "lastName": "Styles",
+    "previousFirstName": "pJo",
+    "previousMiddleName": "pThomson",
+    "previousLastName": "pStyles",
+    "dob": "22/10/1992",
+    "gender": "Female",
+    "driverLicence": "JoThomson",
+    "preferredContact": "Phone",
+    "emailAddress": "rijuvijayan@gmail.com",
+    "phoneType": "Work",
+    "countryCode": "New Zealand - 64",
+    "area": "88",
+    "phoneNumber": "27277966",
+    "addressType": "Home address",
+    "address": "12 THERESE STREET, SPREYDON, CHRISTCHURCH CITY 8024",
+    "victimSupport": "yes"
+  }
+}

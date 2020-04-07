@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    stages{
+        stage('Pull Latest test container'){
+            steps{
+                dir('sdt-test-automation-runner'){
+                        sh "chmod a+x checkserverup.sh"
+                        sh "./checkserverup.sh"
+                        sh "docker pull 10.0.3.5:5000/sdt-automation:latest"
+                }
+            }
+        }
+        stage('Run Test'){
+            steps{
+                dir('sdt-test-automation-runner'){
+                    sh 'build=${BUILD_NUMBER} docker-compose up'
+                }
+            }
+        }
+    }
+    post{
+        always{
+            sh "mv sdt-test-automation-runner/docker-compose.yml ."
+            sh "docker-compose down --remove-orphans"
+            sh "docker stop nia_container"
+            sh "docker system prune -f"
+            findText regexp: 'exited with code 0', alsoCheckConsoleOutput: true, succeedIfFound: true
+        }
+    }
+}

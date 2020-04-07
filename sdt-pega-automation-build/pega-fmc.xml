@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="registration-module" verbose="10" configfailurepolicy="skip">
+
+    <test name="registration-user1">
+        <classes>
+            <class name="runner.fmcTestRunner" />
+        </classes>
+    </test>
+
+</suite>

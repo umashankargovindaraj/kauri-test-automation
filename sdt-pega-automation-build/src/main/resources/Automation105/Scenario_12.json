@@ -1,0 +1,76 @@
+{
+  "eventTime": {
+    "startDate": "02/01/2020",
+    "startTime": "12:00 AM",
+    "endDate": "02/01/2020",
+    "endTime": "1:00 AM"
+  },
+  "eventLocation": {
+    "locationType": "An organisation",
+    "nameOfOrganisation": "Test Organisation",
+    "address": "1747 AWATERE VALLEY ROAD, AWATERE VALLEY, MARLBOROUGH DISTRICT 7274",
+    "proximity": "Nearby",
+    "additionalDetails": "Testing additional details of location for Scenario 12.",
+    "isVehicleStoleIndicator": "no"
+  },
+  "whoWasInvolved": {
+    "whoHasDoneThis": {
+      "value": "no"
+    },
+    "describePerson": {
+      "value": "yes",
+      "descriptionOfOffender": "He is tall of about 170-180 cm height, he was wearing cap"
+    },
+    "offenderVehicle": {
+      "value": "no"
+    },
+    "witnessInformation": {
+      "value": "no"
+    }
+  },
+  "whatHappened": {
+    "describeWhatHappened": "This is a description of what happened on how the vehicle stolen in scenario 12."
+  },
+  "stolenVehicles_1": {
+    "licencePlate": "JY123K",
+    "stolenLocation": "Parked on a driveway",
+    "owner": {
+      "value": "I do"
+    },
+    "vehicleType": "Car",
+    "vehicleMake": "BMW",
+    "identifyingFeatures": "this is identifying features for stolen car"
+  },
+  "attachmentsPPTX": {
+    "fileName": "Sample_PPTX.pptx",
+    "description": "attachmentPPTXDescription1"
+  },
+  "attachmentsRTF": {
+    "fileName": "Sample_RTF.rtf",
+    "description": "attachmentRTFDescription1"
+  },
+  "attachmentsXML": {
+    "fileName": "Sample_XML.xml",
+    "description": "attachmentXMLDescription1"
+  },
+  "reporterDetails": {
+    "firstName": "Terry",
+    "middleName": "Kerry",
+    "lastName": "Fox",
+    "previousFirstName": "Terr",
+    "previousMiddleName": "Derr",
+    "previousLastName": "Fx",
+    "dob": "28/11/1984",
+    "gender": "Female",
+    "driverLicence": "TerryLic",
+    "preferredContact": "Phone",
+    "emailAddress": "rijuvijayan@gmail.com",
+    "phoneType": "Work",
+    "countryCode": "New Zealand - 64",
+    "area": "333",
+    "phoneNumber": "248200",
+    "addressType": "Home address",
+    "address": "999 ORUAWHARO ROAD, ORUAWHARO, KAIPARA DISTRICT 0975",
+    "victimSupport": "yes"
+  }
+}
