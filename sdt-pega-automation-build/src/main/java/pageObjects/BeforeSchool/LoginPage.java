@@ -12,6 +12,7 @@ public class LoginPage extends BasePage {
             loadUrl(testEnvironment.getAppURL());
         }catch(Exception e){
             Assert.fail("Application launch failed " + e.getMessage());
+            System.out.println("comment added by tushar");
         }
     }
 }
