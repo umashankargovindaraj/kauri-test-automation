@@ -3,7 +3,7 @@
 
     <test name="registration-user1">
         <classes>
-            <class name="runner.fmcTestRunner" />
+            <class name="runner.TestRunnerB4SC" />
         </classes>
     </test>
 

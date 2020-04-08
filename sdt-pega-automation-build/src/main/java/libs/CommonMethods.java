@@ -14,11 +14,8 @@ import java.util.regex.Pattern;
 
 public class CommonMethods {
     final String configFilePath = "configuration/config.properties";
-    final String dataContextFilePath = "src/test/resources/dataDictionary/content.properties";
-    final String elkData = "configuration/elkdata.properties";
 
     private Properties prop = null;
-    private Properties elkDataProp = null;
     private Properties content = null;
     private ObjectMapper mapper;
     private static JsonNode node;
@@ -26,11 +23,6 @@ public class CommonMethods {
 
     public CommonMethods() {
         initPropertyFiles();
-        initElkDataFile();
-        if(getPropertyValue("EXECUTE_IN_BROWSERSTACK")=="true"){
-            initBSPropertyFiles(); //TODO : Temporary till we move things to OS
-        }
-
         mapper = new ObjectMapper();
     }
 
@@ -43,14 +35,6 @@ public class CommonMethods {
         }
     }
 
-    public void initElkDataFile() {
-        try (InputStream input = new FileInputStream(elkData)) {
-            elkDataProp = new Properties();
-            elkDataProp.load(input);
-        } catch (IOException ex) {
-            functionThrowAssertMessage("Property file loading failed. Please check configuration directory");
-        }
-    }
 
     public void initDataFiles(String feature, String fileName) {
         String fileNameUpdated = "src/main/resources/" + feature + "/" + fileName;
@@ -77,14 +61,6 @@ public class CommonMethods {
         String value = content.getProperty(key).trim();
         if (value.equalsIgnoreCase(null) || value.equalsIgnoreCase("")) {
             functionThrowAssertMessage("Content request not found in src/test/resources/dataDictionary/content.properties file");
-        }
-        return value;
-    }
-
-    public String getELKData(String key) {
-        String value = elkDataProp.getProperty(key).trim();
-        if (value.equalsIgnoreCase(null) || value.equalsIgnoreCase("")) {
-            functionThrowAssertMessage("Property value not found in the file. Please check configuration/elkdata.properties file");
         }
         return value;
     }

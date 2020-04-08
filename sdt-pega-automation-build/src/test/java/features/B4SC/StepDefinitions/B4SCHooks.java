@@ -1,4 +1,4 @@
-package features.Automation105.StepDefinitions;
+package features.B4SC.StepDefinitions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class MasterHooks105 extends DriverFactory {
+public class B4SCHooks extends DriverFactory {
 
     private ResultSender resultSender;
     private static ObjectMapper mapper = new ObjectMapper();
@@ -39,7 +39,7 @@ public class MasterHooks105 extends DriverFactory {
     @Before
     public void setup(Scenario cukeScenarioObj) throws IOException {
         cukeScenario = cukeScenarioObj;
-        boolean tagFound = false;
+        /*boolean tagFound = false;
         for (String tag : cukeScenario.getSourceTagNames()) {
             if (tag.toLowerCase().contains("scenario_")) {
                 scenarioName = tag.substring(1);
@@ -49,7 +49,7 @@ public class MasterHooks105 extends DriverFactory {
         if (!tagFound) {
             System.out.println("Scenario tag not set. Please set a tag '@Scenario_<scenarioName> for the scenario");
             System.exit(1);
-        }
+        }*/
         _driver = getWebDriver(cukeScenario.getName(), scenarioName);
         _persistentData.setContext("testCase", scenarioName);
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -57,7 +57,7 @@ public class MasterHooks105 extends DriverFactory {
 
 
     @After
-    public void tearDownAndScreenShotOnFailure(cucumber.api.Scenario cukeScenario) throws IOException {
+    public void tearDownAndScreenShotOnFailure(Scenario cukeScenario) throws IOException {
         resultSender = new ResultSender();
         scenarios.setScenarioName(cukeScenario.getName());
         //sessionStatus(cukeScenario.isFailed());

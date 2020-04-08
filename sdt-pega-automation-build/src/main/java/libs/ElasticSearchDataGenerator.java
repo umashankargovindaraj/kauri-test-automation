@@ -17,21 +17,13 @@ public class ElasticSearchDataGenerator {
 
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         Release release = new Release();
-        release.setServiceName(cm.getELKData("serviceName"));
-        release.setBuild(cm.getELKData("build"));
-        release.setTechComponents(cm.getELKData("techComponents"));
-        release.setUnitTesting(cm.getELKData("unitTesting"));
-        release.setPerformanceTestAverage(cm.getELKData("performanceTestAverage"));
-        release.setSecurityTest(cm.getELKData("securityTest"));
+
         DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy hh:mm a");
         Date now = new Date();
         String formattedDate = dateFormat.format(now);
         System.out.println(formattedDate);
         release.setTimeStamp(formattedDate);
         release.setScenarios(scenarios);
-        release.setProdStatus(cm.getELKData("prodStatus"));
-        release.setTesting(cm.getELKData("Testing"));
-        release.setCJMSignOff(cm.getELKData("CJMSignOff"));
 
         String json = null;
         try {
