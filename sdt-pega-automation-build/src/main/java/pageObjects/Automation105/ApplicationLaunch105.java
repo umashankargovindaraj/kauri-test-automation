@@ -9,7 +9,7 @@ public class ApplicationLaunch105 extends BasePage {
 
     public void launchWebApplication() throws IOException {
         loadUrl(testEnvironment.getAppURL());
-        Assert.assertTrue(_eventInfo.checkIfOnlineReportingPageIsDisplayed(), "Online Reporting form is not displayed");
+//        Assert.assertTrue(_eventInfo.checkIfOnlineReportingPageIsDisplayed(), "Online Reporting form is not displayed");
     }
 
 }

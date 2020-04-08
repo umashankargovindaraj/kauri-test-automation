@@ -1,13 +1,17 @@
 package pageObjects.BeforeSchool;
 
 import libs.BasePage;
+import org.testng.Assert;
 
 import java.io.IOException;
 
 public class LoginPage extends BasePage {
 
-    public void launchApplication() throws IOException {
-        loadUrl(testEnvironment.getAppURL());
+    public void launchApplication() {
+        try{
+            loadUrl(testEnvironment.getAppURL());
+        }catch(Exception e){
+            Assert.fail("Application launch failed " + e.getMessage());
+        }
     }
-
 }

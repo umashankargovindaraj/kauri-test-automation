@@ -1326,10 +1326,7 @@ public class BasePage extends DriverFactory {
             waitForPageComponentLoadFluentWait();
             wait.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
-            if (_contactDetails.isAlertPresent()) {
-                _contactDetails.closeAlertPopupBox();
-            }
-            System.out.println("Successfully clicked on the following WebElement: " + "<" + element.toString() + ">");
+
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement staleElement = element;
             Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(staleElement)).isEnabled();
@@ -1342,10 +1339,6 @@ public class BasePage extends DriverFactory {
         } catch (NoSuchElementException e) {
             System.out.println("Unable to JS click on the following WebElement: " + "<" + element.toString() + ">");
             Assert.fail("Unable to JS click on the WebElement, Exception: " + e.getMessage());
-        } catch (AWTException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

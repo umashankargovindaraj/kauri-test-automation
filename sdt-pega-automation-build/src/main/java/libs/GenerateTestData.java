@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 
-import static libs.DriverFactory._parseJSONData;
+//import static libs.DriverFactory._parseJSONData;
 
 public class GenerateTestData {
 
@@ -62,7 +62,7 @@ public class GenerateTestData {
     }*/
 
 
-    public String generateValidData(String dataXpath) {
+    /*public String generateValidData(String dataXpath) {
         System.out.println("Valid data generation => ");
         String testData = null;
         String testCondition = _parseJSONData.getDataValue(dataXpath);
@@ -73,9 +73,9 @@ public class GenerateTestData {
             _persistentData.setContext(dataXpath, testData);
         }
         return testData;
-    }
+    }*/
 
-    public String[] generateListData(String dataXpath) {
+    /*public String[] generateListData(String dataXpath) {
         System.out.println("Valid data generation => ");
         String[] testData = null;
         String testCondition = _parseJSONData.getDataValue(dataXpath);
@@ -85,7 +85,7 @@ public class GenerateTestData {
             testData = getListDataAsArray(conditions.get(2));
         }
         return testData;
-    }
+    }*/
 
     public String generateInvalidData(String testCondition, int invalidType) {
         String testData = null;

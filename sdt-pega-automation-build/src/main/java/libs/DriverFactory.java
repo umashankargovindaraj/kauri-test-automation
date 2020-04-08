@@ -67,7 +67,7 @@ public class DriverFactory extends CommonMethods {
             scenarios.setBrowserVersion("75");*/
             try {
                 //this._driver = new RemoteWebDriver(new URL(getPropertyValue("selenium_local_server")), _capabilities);
-                System.setProperty("webdriver.chrome.driver","C:\\Users\\umashankar\\Downloads\\chromedriver_win32\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver",getPropertyValue("driverPath"));
                 this._driver = new ChromeDriver();
             } catch (UnreachableBrowserException exception) {
                 System.out.println("WebDriver creation failed. Possibly Remote webdriver endpoint is not configured properly. Check <IP>:4444/wd/hub endpoint");
