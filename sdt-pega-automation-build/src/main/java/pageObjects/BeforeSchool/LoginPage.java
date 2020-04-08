@@ -13,6 +13,7 @@ public class LoginPage extends BasePage {
         }catch(Exception e){
             Assert.fail("Application launch failed " + e.getMessage());
             System.out.println("comment added by tushar");
+            System.out.println("comment by Uma");
         }
     }
 }
