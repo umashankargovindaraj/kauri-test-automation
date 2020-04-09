@@ -84,26 +84,11 @@ public class BasePage extends DriverFactory {
         return _driver.getTitle();
     }
 
-    public void waitAndClickElement(WebElement element) {
-        waitForPageComponentLoadFluentWait();
-        String elementUsed = element.toString();
-        boolean clicked = false;
-        int attempts = 0;
-        while (!clicked && attempts < 10) {
-            try {
-                this.wait.until(ExpectedConditions.elementToBeClickable(element)).click();
-                waitForPageComponentLoadFluentWait();
-                System.out.println("Successfully clicked on the WebElement: " + "<" + elementUsed + ">");
-                clicked = true;
-            } catch (StaleElementReferenceException staleException) {
-                WebElement staleElement = getUpdatedReferenceOfStaleElement(element);
-                handleStaleExceptionError(staleElement);
-                waitAndclickElementUsingJS(staleElement);
-            } catch (Exception e) {
-                System.out.println("Unable to wait and click on WebElement, Exception: " + e.getMessage());
-                Assert.fail("Unable to wait and click on the WebElement, using locator: " + "<" + element.toString() + ">");
-            }
-            attempts++;
+    public void clickElement(WebElement element) {
+        try{
+            this.wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        }catch(Exception e){
+            Assert.fail("Uable to click the element " + e.getMessage());
         }
     }
 
@@ -359,21 +344,10 @@ public class BasePage extends DriverFactory {
 
     public void sendKeysToWebElement(WebElement element, String textToSend) {
         try {
-            waitForPageComponentLoadFluentWait();
-            //element.click();
-            if (_platFormName.equalsIgnoreCase("android")) {
-                actionClick(element);
-            }
             element.clear();
-            waitForPageComponentLoadFluentWait();
-            element.sendKeys(textToSend, Keys.TAB);
+            element.sendKeys(textToSend);
             //sendTABKey(element);
-            waitForPageComponentLoadFluentWait();
             System.out.println("Successfully Sent the following keys: '" + textToSend + "' to element: " + "<" + element.toString() + ">");
-        } catch (StaleElementReferenceException staleElementException) {
-            WebElement staleElement = getUpdatedReferenceOfStaleElement(element);
-            handleStaleExceptionError(staleElement);
-            sendKeysToWebElement(staleElement, textToSend);
         } catch (Exception e) {
             System.out.println("Unable to locate WebElement: " + "<" + element.toString() + "> and sendResultsToElasticSearch the following keys: " + textToSend);
             Assert.fail("Unable to keys to WebElement, Exception: " + e.getMessage());
@@ -548,6 +522,10 @@ public class BasePage extends DriverFactory {
         _driver.get(url);
         return new BasePage();
     }
+    public BasePage enterUserName(String username) throws IOException {
+        _driver.get(username);
+        return new BasePage();
+    }
 
     public String getCurrentURL() {
         try {
@@ -674,13 +652,11 @@ public class BasePage extends DriverFactory {
     }
 
     public boolean isElementDisplayed(WebElement element) {
-        waitForPageComponentLoadFluentWait();
+
         try {
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-            waitForPageComponentLoadFluentWait();
             try {
                 this.WaitUntilWebElementIsVisible(element);
-                waitForPageComponentLoadFluentWait();
                 try {
                     boolean elementFound = element.isDisplayed();
                     return elementFound;
@@ -691,14 +667,6 @@ public class BasePage extends DriverFactory {
                 return false;
             }
 
-        } catch (StaleElementReferenceException staleException) {
-            WebElement staleElement = getUpdatedReferenceOfStaleElement(element);
-            handleStaleExceptionError(staleElement);
-            jsExecutor.executeScript("arguments[0].scrollIntoView(true);", staleElement);
-            waitForPageComponentLoadFluentWait();
-            this.WaitUntilWebElementIsVisible(staleElement);
-            waitForPageComponentLoadFluentWait();
-            return element.isDisplayed();
         } catch (Exception e) {
             System.out.println("Unable to find the object");
             Assert.fail("Unable to find the object: " + e.getMessage());

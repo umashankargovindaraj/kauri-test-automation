@@ -88,9 +88,6 @@ public class DriverFactory extends CommonMethods {
      * Any new Page object that gets created should be initialised here.
      */
     public void initializePageObjects() {
-        if (_appiumDriver != null) {
-            _driver = _appiumDriver;
-        }
         if (_driver != null) {
             try {
                 _loginPage = PageFactory.initElements(_driver,LoginPage.class);
