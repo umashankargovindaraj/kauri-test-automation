@@ -16,6 +16,10 @@ public class ApplicationData {
     private Map<String, Map<String,String>> applicationDataMap = new HashMap<>();
     private Map<String,String> transientDataMap  = new HashMap<>();
 
+    public ApplicationData() {
+        JSONToMap("testData.json");
+    }
+
     public void putToMap(String key, String value) {
         this.transientDataMap.put(key,value);
     }
@@ -28,10 +32,6 @@ public class ApplicationData {
         System.out.println("*******************transientDataMap: " + this.transientDataMap.toString());
     }
 
-    public ApplicationData() {
-        JSONToMap("testData.json");
-    }
-
     public File getJSONFile (String fileName) {
         String fullFilePath = fileDir + fileName;
         return new File(fullFilePath);
@@ -41,7 +41,7 @@ public class ApplicationData {
         try {
             applicationDataMap = mapper.readValue(getJSONFile(fileName), new TypeReference<Map<String, Map<String,String>>>(){});
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("failure in JSONToMap() " + e.getMessage());
         }
     }
 
@@ -56,6 +56,4 @@ public class ApplicationData {
     public String getElement (String pageName, String key) {
         return applicationDataMap.get(pageName).get(key);
     }
-
-
 }

@@ -9,6 +9,5 @@ public class LoginSteps extends DriverFactory {
     @Given("^user launch the application$")
     public void userLaunchTheApplication() {
         _loginPage.launchApplication();
-
     }
 }

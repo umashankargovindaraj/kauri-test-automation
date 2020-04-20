@@ -1,8 +1,5 @@
 package libs;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.remote.AndroidMobileCapabilityType;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -94,12 +91,14 @@ public class DriverFactory extends CommonMethods {
     public void initializePageObjects() {
         if (_driver != null) {
             try {
+                appData = new ApplicationData();
                 _loginPage = PageFactory.initElements(_driver,LoginPage.class);
             } catch (Exception e) {
                 Assert.assertTrue(false, "Page object initialization failed");
             } finally {
 //                _parseJSONData = new ParseJSONData();
                 //_retrieveTestData = new RetrieveTestData(tagName);
+
                 _persistentData = new ScenarioContext();
                 _generateTestData = new GenerateTestData(_persistentData);
             }
