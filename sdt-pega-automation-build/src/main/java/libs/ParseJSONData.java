@@ -19,7 +19,7 @@ public class ParseJSONData extends CommonMethods {
     private static List<Map.Entry<String, JsonNode>> sectionDataObjects = new ArrayList<>();
 
     public ParseJSONData() {
-        String folderDirectory = getPropertyValue("onlineReporting_Data");
+        String folderDirectory = getPropertyValue("testDataPath");
         JsonFactory jsonFactory = new JsonFactory();
         JsonParser jp = null;
         folderDirectory = System.getProperty("user.dir") + folderDirectory;

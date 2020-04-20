@@ -22,14 +22,14 @@ import java.util.TimeZone;
 
 public class DriverFactory extends CommonMethods {
 
-    protected static AppiumDriver _appiumDriver;
     protected static WebDriver _driver;
+    protected static ApplicationData appData;
     protected static LoginPage _loginPage;
-    protected static String _platFormName = "";
     private DesiredCapabilities _capabilities;
     protected static  ScenarioContext _persistentData;
+    protected static ParseJSONData _parseJSONData;
+    protected static GenerateTestData _generateTestData;
     public Scenarios scenarios;
-    protected static ExecutionDeviceConfiguration executionDeviceConfiguration;
     protected static String tagName = "";
     protected static Environment testEnvironment;
 
@@ -39,7 +39,6 @@ public class DriverFactory extends CommonMethods {
         ConfigFactory.setProperty("env", getPropertyValue("ENVIRONMENT"));
         testEnvironment = ConfigFactory.create(Environment.class);
     }
-
 
     protected WebDriver getWebDriver(String testName, String scenarioName) throws MalformedURLException {
         tagName = scenarioName;
@@ -82,30 +81,32 @@ public class DriverFactory extends CommonMethods {
     }
 
 
+    // get reference to the ApplicationData class.
+    public ApplicationData getAppData()
+    {
+        return appData;
+    }
 
     /**
      * Initialize PageObjects here.
      * Any new Page object that gets created should be initialised here.
      */
     public void initializePageObjects() {
-        if (_appiumDriver != null) {
-            _driver = _appiumDriver;
-        }
         if (_driver != null) {
             try {
                 _loginPage = PageFactory.initElements(_driver,LoginPage.class);
             } catch (Exception e) {
                 Assert.assertTrue(false, "Page object initialization failed");
             } finally {
-                //_parseJSONData = new ParseJSONData();
+//                _parseJSONData = new ParseJSONData();
                 //_retrieveTestData = new RetrieveTestData(tagName);
                 _persistentData = new ScenarioContext();
-                //_generateTestData = new GenerateTestData(_persistentData);
+                _generateTestData = new GenerateTestData(_persistentData);
             }
         }
     }
 
-    public String getOperatingSystem() {
+   /* public String getOperatingSystem() {
         if (System.getProperty("OS") != null) {
             if (System.getProperty("OS").equalsIgnoreCase("mac")) {
                 return "OS X";
@@ -119,9 +120,9 @@ public class DriverFactory extends CommonMethods {
                 return getPropertyValue("OS");
             }
         }
-    }
+    }*/
 
-    public String getOSVersion() {
+    /*public String getOSVersion() {
         if (System.getProperty("OS_VERSION") != null) {
             return System.getProperty("OS_VERSION");
         } else {
@@ -132,7 +133,7 @@ public class DriverFactory extends CommonMethods {
                 return getPropertyValue("OS_VERSION");
             }
         }
-    }
+    }*/
 
     public String getBrowserName() {
         if (System.getProperty("BROWSER_NAME") != null) {
@@ -174,7 +175,7 @@ public class DriverFactory extends CommonMethods {
         }
     }
 
-    public String getAppiumVersion() {
+    /*public String getAppiumVersion() {
         if (System.getProperty("APPIUM_VERSION") != null) {
             System.out.println(System.getProperty("APPIUM_VERSION"));
             return System.getProperty("APPIUM_VERSION");
@@ -186,9 +187,9 @@ public class DriverFactory extends CommonMethods {
             }
         }
 
-    }
+    }*/
 
-    public String getDevice() {
+   /* public String getDevice() {
         if (System.getProperty("DEVICE") != null) {
             System.out.println(System.getProperty("DEVICE"));
             return System.getProperty("DEVICE");
@@ -199,7 +200,7 @@ public class DriverFactory extends CommonMethods {
                 return getPropertyValue("DEVICE");
             }
         }
-    }
+    }*/
 
     public String getDevicePlatForm() {
         if (System.getProperty("DEVICE_PLATFORM") != null) {
