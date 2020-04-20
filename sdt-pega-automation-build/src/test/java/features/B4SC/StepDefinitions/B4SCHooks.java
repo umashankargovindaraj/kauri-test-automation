@@ -8,7 +8,6 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import libs.DriverFactory;
 import libs.ResultScenarioPOJO;
-import libs.ResultSender;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -28,7 +27,6 @@ import java.util.Map;
 
 public class B4SCHooks extends DriverFactory {
 
-    private ResultSender resultSender;
     private static ObjectMapper mapper = new ObjectMapper();
     private static Map<String, ResultScenarioPOJO> resultMap = new HashMap<>();
     private static String scenarioName;
@@ -58,7 +56,6 @@ public class B4SCHooks extends DriverFactory {
 
     @After
     public void tearDownAndScreenShotOnFailure(Scenario cukeScenario) throws IOException {
-        resultSender = new ResultSender();
         scenarios.setScenarioName(cukeScenario.getName());
         //sessionStatus(cukeScenario.isFailed());
         try {
@@ -71,9 +68,7 @@ public class B4SCHooks extends DriverFactory {
             if (_driver != null) {
                 _driver.manage().deleteAllCookies();
                 _driver.quit();
-                _appiumDriver.quit();
                 _driver = null;
-                _appiumDriver = null;
             }
             deleteTestFiles();
         } catch (Exception e) {
@@ -102,7 +97,6 @@ public class B4SCHooks extends DriverFactory {
             status = "failed";
             reason = "Test Failed";
         }
-        resultSender.sendResultsToBrowserStack(url, status, reason, getBSPropertyValue("BROWSERSTACK_USERNAME"), getBSPropertyValue("BROWSERSTACK_TOKEN"));
     }
 
     public ResultScenarioPOJO testResultJsonGenerator() {
