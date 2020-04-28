@@ -87,7 +87,7 @@ public class BasePage extends DriverFactory {
         }
     }
 
-    public void waitAndClickElement(WebElement element, boolean withoutFrame) {
+    public void waitAndClickElement(WebElement element) {
         boolean clicked = false;
         int attempts = 0;
         while (!clicked && attempts < 10) {
@@ -109,7 +109,7 @@ public class BasePage extends DriverFactory {
             this.WaitUntilWebElementIsVisible(element);
             Select select = new Select(element);
             select.selectByIndex(index);
-            waitForPageComponentLoadFluentWait();
+
         } catch (Exception e) {
             System.out.println("Unable to find the object");
             Assert.fail("Unable to find the object: " + e.getMessage());
@@ -121,25 +121,25 @@ public class BasePage extends DriverFactory {
     public void selectFromDropDownbyValue(WebElement element, String value) {
         Select select;
         try {
-            waitForPageComponentLoadFluentWait();
+            //waitForPageComponentLoadFluentWait();
             //actionClick(element);
-            this.WaitUntilWebElementIsVisible(element);
+            //this.WaitUntilWebElementIsVisible(element);
             try {
                 select = new Select(element);
                 select.selectByVisibleText(value);
-                waitForPageComponentLoadFluentWait();
+               // waitForPageComponentLoadFluentWait();
             } catch (StaleElementReferenceException staleElement) {
                 element = getUpdatedReferenceOfStaleElement(element);
                 select = new Select(element);
-                waitForPageComponentLoadFluentWait();
+               // waitForPageComponentLoadFluentWait();
                 select.selectByVisibleText(value);
-                waitForPageComponentLoadFluentWait();
+               // waitForPageComponentLoadFluentWait();
             }
         } catch (Exception e) {
             System.out.println("Unable to find the object");
             Assert.fail("Unable to find the object: " + e.getMessage());
         }
-        waitForPageComponentLoadFluentWait();
+        //waitForPageComponentLoadFluentWait();
     }
 
 
@@ -327,9 +327,8 @@ public class BasePage extends DriverFactory {
 
     public void sendKeysToWebElement(WebElement element, String textToSend) {
         try {
-            waitForPageComponentLoadFluentWait();
-            //element.click();
-            element.clear();
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            //element.clear();
             element.sendKeys(textToSend);
             //sendTABKey(element);
             System.out.println("Successfully Sent the following keys: '" + textToSend + "' to element: " + "<" + element.toString() + ">");
@@ -484,10 +483,6 @@ public class BasePage extends DriverFactory {
         _driver.get(url);
         return new BasePage();
     }
-    public BasePage enterUserName(String username) throws IOException {
-        _driver.get(username);
-        return new BasePage();
-    }
 
     public String getCurrentURL() {
         try {
@@ -588,9 +583,9 @@ public class BasePage extends DriverFactory {
     public String getDefaultSelectedOptionForDropDown(WebElement element) {
         try {
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-            waitForPageComponentLoadFluentWait();
+            /*waitForPageComponentLoadFluentWait();
             this.WaitUntilWebElementIsVisible(element);
-            waitForPageComponentLoadFluentWait();
+            waitForPageComponentLoadFluentWait();*/
             Select select = new Select(element);
             WebElement option = select.getFirstSelectedOption();
             String defaultItem = option.getText().trim();
@@ -599,9 +594,9 @@ public class BasePage extends DriverFactory {
             WebElement staleElement = getUpdatedReferenceOfStaleElement(element);
             handleStaleExceptionError(staleElement);
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", staleElement);
-            waitForPageComponentLoadFluentWait();
+            /*waitForPageComponentLoadFluentWait();
             this.WaitUntilWebElementIsVisible(staleElement);
-            waitForPageComponentLoadFluentWait();
+            waitForPageComponentLoadFluentWait();*/
             Select select = new Select(element);
             WebElement option = select.getFirstSelectedOption();
             String defaultItem = option.getText().trim();
@@ -1331,4 +1326,39 @@ public class BasePage extends DriverFactory {
         }
         return data;
     }
-}
+    /* verify text of an object with expected result
+     * @param testObject - webelement
+     * @param texttoverify - exepected text
+     */
+    public void verifyText(WebElement testObject, String texttoverify) {
+        String actualtext = null;
+        String expected = null;
+        try {
+           // this.wait.until(ExpectedConditions.elementToBeClickable(testObject)).click();
+            expected = texttoverify.trim().replaceAll("\\s+", "").toLowerCase();
+            actualtext = testObject.getText().trim().replaceAll("\\s+", "").toLowerCase();
+            Assert.assertEquals(actualtext, expected);
+        } catch (Exception e) {
+            Assert.fail("Verification failed for actual value: " + actualtext + " and expected value: " + expected);
+        }
+    }
+    /* verify partial text of an object
+     * @param testObject - webelement
+     * @param texttoverify
+     */
+    public void verifyTextPartially(WebElement testObject, String texttoverify){
+        try{
+            String expected = texttoverify.trim().replaceAll("\\s+","").toLowerCase();
+            String actualtext = testObject.getText().trim().replaceAll("\\s+","").toLowerCase();
+            System.out.println(expected);
+            System.out.println(actualtext);
+            if(actualtext.contains(expected)){
+                Assert.assertTrue(true,"Partial text verification successful");
+            }else{
+                Assert.fail("Partial verification failed");
+            }
+        }catch(Exception e){
+            System.out.println("Error found " + e.getMessage());
+        }
+    }
+    }

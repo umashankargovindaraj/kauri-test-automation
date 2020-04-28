@@ -70,7 +70,6 @@ public class B4SCHooks extends DriverFactory {
                 _driver.quit();
                 _driver = null;
             }
-            deleteTestFiles();
         } catch (Exception e) {
             System.out.println("Methods failed: tearDownAndScreenShotOnFailure, Exception: " + e.getMessage());
         }
@@ -143,8 +142,8 @@ public class B4SCHooks extends DriverFactory {
             e.printStackTrace();
         }
         try {
-            mapper.writeValue(file, resultMap);
-        } catch (IOException e) {
+            //mapper.writeValue(file, resultMap);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("Result file is available in the location: " + reportFileName);

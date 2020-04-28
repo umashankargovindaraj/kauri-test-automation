@@ -4,6 +4,7 @@ import libs.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.IOException;
@@ -20,8 +21,15 @@ public class LoginPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//input[@id='_loginControl_LoginButton']")
     private WebElement loginButton;
 
-    @FindBy(how = How.XPATH, using = "//div[contains(@class,'SectionBlock Clearfix')]/h1")
-    private WebElement childAllocationButton;
+    @FindBy(how = How.XPATH, using = "//div[@class='SectionBlock Clearfix']/h1")
+    private WebElement childSearchButton;
+
+    @FindBy(how = How.XPATH,using = "//select[@id='_organisationComboBox__comboBox']")
+    private WebElement organisation;
+
+    @FindBy(how = How.XPATH, using = "//input[@id='_selectOrganisationButton']")
+    private WebElement organisationOkButton;
+
 
     public void launchApplication() {
         try {
@@ -32,15 +40,42 @@ public class LoginPage extends BasePage {
         }
     }
 
-    public void login() {
-        sendKeysToWebElement(username, "LancashireA");
-        sendKeysToWebElement(password, "Welcome13");
+    public void login(String userType) {
+        String userName = getPropertyValue("username");
+        String userPassword = getPropertyValue("password");
+
+
+        sendKeysToWebElement(username, userName);
+        sendKeysToWebElement(password, userPassword);
         clickElement(loginButton);
+        if (userType.toLowerCase().equalsIgnoreCase("UmaProvider")) {
+            chooseProvider();
+        } else if (userType.toLowerCase().equalsIgnoreCase("Midcentral DHB")) {
+            chooseCoordinator();
+        } else if (userType.toLowerCase().equalsIgnoreCase("Auckland DHB")) {
+            chooseCoordinatorLocalAdmin();
+        }
     }
 
     public void AssertHomePage() {
-        isElementDisplayed(childAllocationButton);
+        isElementDisplayed(childSearchButton);
     }
-}
+
+    public void chooseCoordinator(){
+        selectFromDropDownbyValue(organisation,"Midcentral DHB");
+       // getDefaultSelectedOptionForDropDown(organisation);
+        waitAndClickElement(organisationOkButton);
+    }
+
+    public void chooseProvider() {
+        selectFromDropDownbyValue(organisation, "UmaProvider");
+        waitAndClickElement(organisationOkButton);
+    }
+     public void chooseCoordinatorLocalAdmin(){
+                selectFromDropDownbyValue(organisation,"Auckland DHB");
+         waitAndClickElement(organisationOkButton);
+            }
+    }
+
 
 
