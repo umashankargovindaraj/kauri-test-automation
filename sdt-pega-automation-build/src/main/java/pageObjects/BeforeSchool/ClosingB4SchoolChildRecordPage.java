@@ -30,6 +30,9 @@ public class ClosingB4SchoolChildRecordPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__status']")
     private WebElement closeChildB4SchoolCheckRecord_StatusClosedValidation;
 
+    @FindBy(how = How.XPATH, using = "//label[@id='ctl00__faultInformation__errorMessageLabel']/span")
+    private WebElement closeChildB4SchoolCheckRecord_ErrorStatusValidation;
+
     //--------------------------- CLOSING B4SCHOOL CHILD RECORD ---------------------------------------
 
     public void closingB4SchoolChildRecord(){
@@ -39,7 +42,17 @@ public class ClosingB4SchoolChildRecordPage extends BasePage {
         waitAndClickElement(closeChildB4SchoolCheckRecord_CloseRecord);
         sendKeysToWebElement(closeChildB4SchoolCheckRecord_AuditNotes,getAppData().getElement("CLOSEB4SCHOOLRECORD","NOTES"));
         waitAndClickElement(closeChildB4SchoolCheckRecord_SaveButton);
-        verifyText(closeChildB4SchoolCheckRecord_StatusClosedValidation,"CLOSED");
+        verifyText(closeChildB4SchoolCheckRecord_StatusClosedValidation,getAppData().getElement("CLOSEB4SCHOOLRECORD","VERIFYSTATUSCLOSED"));
         System.out.println("Status Of the Questionnaire:" + closeChildB4SchoolCheckRecord_StatusClosedValidation.getText());
+    }
+    public void closingB4SchoolChildRecordFAILED(){
+        selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_ProviderChecksLocation,1);
+        selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_VHTChecksLocation,1);
+        waitAndClickElement(closeChildB4SchoolCheckRecord_ChecksCompleted);
+        waitAndClickElement(closeChildB4SchoolCheckRecord_CloseRecord);
+        sendKeysToWebElement(closeChildB4SchoolCheckRecord_AuditNotes,getAppData().getElement("CLOSEB4SCHOOLRECORD","NOTES"));
+        waitAndClickElement(closeChildB4SchoolCheckRecord_SaveButton);
+        verifyTextPartially(closeChildB4SchoolCheckRecord_ErrorStatusValidation,getAppData().getElement("CLOSEB4SCHOOLRECORD","VERIFYERROR"));
+        System.out.println("Status Of the Questionnaire:" + closeChildB4SchoolCheckRecord_ErrorStatusValidation.getText());
     }
 }

@@ -24,7 +24,9 @@
   "DENTALCHECK": {
     "PROGRESSIONOFDECAY" : "1",
     "DATE" : "07/04/2020",
-    "NOTES" : "Dental Check Completed"
+    "NOTES" : "Dental Check Completed",
+    "VERIFYCOMPLETED" : "Completed",
+    "VERIFYINPROGRESS" : "Outcome:Referred"
   },
   "GROWTHCHECK": {
     "HEIGHT" : "100",
@@ -59,7 +61,18 @@
     "NOTES" : "Distance Vision Check Completed"
   },
   "CLOSEB4SCHOOLRECORD": {
-    "NOTES" : "All B4School checks completed hence closing child record from B4School Application."
+    "NOTES" : "All B4School checks completed hence closing child record from B4School Application.",
+    "VERIFYERROR" : "Cannot close campaign until all referrals are completed",
+    "VERIFYSTATUSCLOSED" : "CLOSED"
+  },
+  "COMMON": {
+    "STATUS" : "Completed"
+  },
+  "DENTALREFERRAL": {
+    "REFERREDTO" : "Public health",
+    "DATE" : "23/04/2020",
+    "NOTES" : "Wisdom tooth",
+    "VERIFY" : "In Progress"
   }
 }
 

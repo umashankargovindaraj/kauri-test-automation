@@ -9,4 +9,9 @@ public class ClosingB4SchoolChildRecordStep extends DriverFactory {
     public void closeChildsBSchoolCheckRecordFromBSchoolApplication(int arg0, int arg1) {
         _ClosingB4SchoolChildRecordPage.closingB4SchoolChildRecord();
     }
+
+    @Then("confirm that child record will not be closed since Dental Check referral is still in progress")
+    public void confirmThatChildRecordWillNotBeClosedSinceChildHealthQuestionaireReferralIsStillInProgress() {
+        _ClosingB4SchoolChildRecordPage.closingB4SchoolChildRecordFAILED();
+    }
 }

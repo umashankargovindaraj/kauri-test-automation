@@ -45,7 +45,7 @@ public class CreateChildPage extends BasePage {
         selectFromDropDownbyValue(ethnicity1,getAppData().getElement("CREATE_CHILD","ETHNICITY1"));
         waitAndClickElement(newChildGender);
         waitAndClickElement(saveButtonOnChildInformationPage);
-        geoCodeErrorHandlerButton.click();
+        waitAndClickElement(geoCodeErrorHandlerButton);
 
     }
     //********* NAME GENERATOR **********************

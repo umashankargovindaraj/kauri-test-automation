@@ -162,7 +162,7 @@ public class SDQTeacherPage extends BasePage {
         selectFromDropDownbyIndex(sdqTeacher_Outcome,1);
         sendKeysToWebElement(sdqTeacher_Notes,getAppData().getElement("SDQTEACHER","NOTES"));
         waitAndClickElement(sdqTeacher_SaveButton);
-        verifyText(sdqTeacher_StatusCompletedValidation,"Completed");
+        verifyText(sdqTeacher_StatusCompletedValidation,getAppData().getElement("COMMON","STATUS"));
         System.out.println("Status Of the Questionnaire:" + sdqTeacher_StatusCompletedValidation.getText());
     }
 }

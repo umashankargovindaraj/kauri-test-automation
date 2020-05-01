@@ -3,7 +3,6 @@ package libs;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.PageFactory;
@@ -24,10 +23,10 @@ import pageObjects.BeforeSchool.VisionAndHearingCheckPage;
 import pageObjects.BeforeSchool.HearingPage;
 import pageObjects.BeforeSchool.DistanceVisionPage;
 import pageObjects.BeforeSchool.ClosingB4SchoolChildRecordPage;
+import pageObjects.BeforeSchool.DentalReferralPage;
 import persistence.ScenarioContext;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -56,6 +55,7 @@ public class DriverFactory extends CommonMethods {
     protected static  ScenarioContext _persistentData;
     protected static ParseJSONData _parseJSONData;
     protected static GenerateTestData _generateTestData;
+    protected static DentalReferralPage _DentalReferralPage;
     public Scenarios scenarios;
     protected static String tagName = "";
     protected static Environment testEnvironment;
@@ -138,6 +138,7 @@ public class DriverFactory extends CommonMethods {
                 _SDQParentPage=PageFactory.initElements(_driver,SDQParentPage.class);
                 _SDQTeacherPage=PageFactory.initElements(_driver,SDQTeacherPage.class);
                 _VisionAndHearingCheckPage=PageFactory.initElements(_driver,VisionAndHearingCheckPage.class);
+                _DentalReferralPage=PageFactory.initElements(_driver, DentalReferralPage.class);
             } catch (Exception e) {
                 Assert.assertTrue(false, "Page object initialization failed");
             } finally {

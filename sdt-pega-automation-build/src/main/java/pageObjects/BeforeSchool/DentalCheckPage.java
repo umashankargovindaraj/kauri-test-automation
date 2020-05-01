@@ -32,6 +32,10 @@ public class DentalCheckPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__dental__assessmentStatus']")
     private WebElement dentalCheck_StatusCompletedValidation;
 
+    @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__generalHealth__assessmentOutcome']")
+    private WebElement dentalCheck_StatusReferredValidation;
+
+
     //******************* DENTAL CHECKS DETAILS PAGE *********************
     public void dentalChecks(){
         waitAndClickElement(dentalCheck_AddNewButton);
@@ -41,8 +45,21 @@ public class DentalCheckPage extends BasePage {
         selectFromDropDownbyIndex(dentalCheck_Outcome,1);
         sendKeysToWebElement(dentalCheck_Notes,getAppData().getElement("DENTALCHECK","NOTES"));
         waitAndClickElement(dentalCheck_SaveButton);
-        verifyText(dentalCheck_StatusCompletedValidation,"Completed");
+        verifyText(dentalCheck_StatusCompletedValidation,getAppData().getElement("DENTALCHECK","VERIFYCOMPLETED"));
         System.out.println("Status Of the Questionnaire:" + dentalCheck_StatusCompletedValidation.getText());
+
+    }
+    public void dentalChecksReferred(){
+        waitAndClickElement(dentalCheck_AddNewButton);
+        sendKeysToWebElement(dentalCheck_ProgressionOfDecay,getAppData().getElement("DENTALCHECK","PROGRESSIONOFDECAY"));
+        waitAndClickElement(dentalCheck_IsEnrolled);
+        sendKeysToWebElement(dentalCheck_DateCompleted,getAppData().getElement("DENTALCHECK","DATE"));
+        selectFromDropDownbyIndex(dentalCheck_Outcome,7);
+        sendKeysToWebElement(dentalCheck_Notes,getAppData().getElement("DENTALCHECK","NOTES"));
+        waitAndClickElement(dentalCheck_SaveButton);
+        _ConsentPage.b4SchoolLink();
+//        verifyText(dentalCheck_StatusReferredValidation,getAppData().getElement("DENTALCHECK","VERIFYINPROGRESS"));
+//        System.out.println("Status Of the Questionnaire:" + dentalCheck_StatusReferredValidation.getText());
 
     }
 }

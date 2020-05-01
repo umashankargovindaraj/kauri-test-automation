@@ -50,12 +50,22 @@ public class SearchPage extends BasePage {
 
  //************************************************************************************************************************
     public String generateRandomNAHINumber() {
+//        boolean flag = true;
+//        String NHI = null;
+//        while (flag) {
+//            NHI = RandomStringUtils.randomAlphabetic(3).toUpperCase() + RandomStringUtils.randomNumeric(4);
+//            if (IsValidNHINumberFormat(NHI)) {
+//                flag = false;
+//            }
+//        }
         boolean flag = true;
-        String NHI = null;
-        while (flag) {
+        String NHI=null;
+        while (flag){
             NHI = RandomStringUtils.randomAlphabetic(3).toUpperCase() + RandomStringUtils.randomNumeric(4);
-            if (IsValidNHINumberFormat(NHI)) {
-                flag = false;
+            if(!(NHI.contains("I")||NHI.contains("O"))){
+                if(IsValidNHINumberFormat(NHI)){
+                    flag = false;
+                }
             }
         }
         System.out.println("Valid NHI Number is " + NHI);
@@ -133,10 +143,15 @@ public class SearchPage extends BasePage {
     public void searchWithNHINumber(){
 
 //      String storedNhiNumber=getAppData().getFromMap("NHI_NUMBER");  /* used when creating new NHI number from scratch */
-        String storedNhiNumber="XQP4710";  /* hardcode NHI number for intermediate test */
+        String storedNhiNumber="XEN6401";  /* hardcode NHI number for intermediate test */
         System.out.println("Stored NHI Number"+storedNhiNumber);
         managementNhi.sendKeys(storedNhiNumber);
-        System.out.println("Entered the stored NHI Number ");
+//        String fName=getAppData().getFromMap("FirstName");
+//        existingFirstName.sendKeys(fName);
+//        String sName=getAppData().getFromMap("SurName");
+//        existingFirstName.sendKeys(sName);
+//        System.out.println("Search firstname: "+fName);
+//        System.out.println("Search surname: "+sName);
     }
 
     public void clickAllDHBButton(){

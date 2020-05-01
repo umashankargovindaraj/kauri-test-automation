@@ -9,4 +9,10 @@ public class DentalCheckStep extends DriverFactory {
     public void fillDentalDetailsAndSaveThenConfirmStatusIsCompletedInBSchoolChecksOverviewPage(int arg0) {
         _DentalCheckPage.dentalChecks();
     }
+
+
+    @And("fill Dental details and save then confirm status is In Progress in B{int} School Checks Overview Page")
+    public void fillDentalDetailsAndSaveThenConfirmStatusIsInProgressInBSchoolChecksOverviewPage(int arg0) {
+        _DentalCheckPage.dentalChecksReferred();
+    }
 }

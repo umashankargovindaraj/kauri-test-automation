@@ -37,6 +37,6 @@ public class ConsentPage extends BasePage {
         waitAndClickElement(consentTypeRadioButton);
         selectFromDropDownbyIndex(consentGivenBy,1);
         sendKeysToWebElement(consentDate,getAppData().getElement("CONSENT","DATE"));
-        consentSaveButton.click();
+        waitAndClickElement(consentSaveButton);
     }
 }
