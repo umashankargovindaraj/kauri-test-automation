@@ -24,6 +24,8 @@ import pageObjects.BeforeSchool.HearingPage;
 import pageObjects.BeforeSchool.DistanceVisionPage;
 import pageObjects.BeforeSchool.ClosingB4SchoolChildRecordPage;
 import pageObjects.BeforeSchool.DentalReferralPage;
+import pageObjects.BeforeSchool.VisionReferralPage;
+import pageObjects.BeforeSchool.ReturnChildToCoordinatorPage;
 import persistence.ScenarioContext;
 
 import java.net.MalformedURLException;
@@ -56,6 +58,8 @@ public class DriverFactory extends CommonMethods {
     protected static ParseJSONData _parseJSONData;
     protected static GenerateTestData _generateTestData;
     protected static DentalReferralPage _DentalReferralPage;
+    protected static VisionReferralPage _VisionReferralPage;
+    protected static ReturnChildToCoordinatorPage _ReturnChildToCoordinatorPage;
     public Scenarios scenarios;
     protected static String tagName = "";
     protected static Environment testEnvironment;
@@ -139,6 +143,8 @@ public class DriverFactory extends CommonMethods {
                 _SDQTeacherPage=PageFactory.initElements(_driver,SDQTeacherPage.class);
                 _VisionAndHearingCheckPage=PageFactory.initElements(_driver,VisionAndHearingCheckPage.class);
                 _DentalReferralPage=PageFactory.initElements(_driver, DentalReferralPage.class);
+                _VisionReferralPage=PageFactory.initElements(_driver,VisionReferralPage.class);
+                _ReturnChildToCoordinatorPage=PageFactory.initElements(_driver,ReturnChildToCoordinatorPage.class);
             } catch (Exception e) {
                 Assert.assertTrue(false, "Page object initialization failed");
             } finally {

@@ -56,4 +56,8 @@ public class SearchSteps extends DriverFactory {
         _SearchPage.surNameLinkClick();
     }
 
+    @Then("user click search button and confirm the child record is returned to coordinator successfully")
+    public void userClickSearchButtonAndConfirmTheChildRecordIsReturnedToCoordinatorSuccessfully() {
+        _SearchPage.clickSearchButtonandConfirmChildReturnedtoCoordinator();
+    }
 }

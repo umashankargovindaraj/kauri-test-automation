@@ -46,6 +46,7 @@ public class ClosingB4SchoolChildRecordPage extends BasePage {
         System.out.println("Status Of the Questionnaire:" + closeChildB4SchoolCheckRecord_StatusClosedValidation.getText());
     }
     public void closingB4SchoolChildRecordFAILED(){
+        _ConsentPage.b4SchoolLink();
         selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_ProviderChecksLocation,1);
         selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_VHTChecksLocation,1);
         waitAndClickElement(closeChildB4SchoolCheckRecord_ChecksCompleted);
@@ -54,5 +55,12 @@ public class ClosingB4SchoolChildRecordPage extends BasePage {
         waitAndClickElement(closeChildB4SchoolCheckRecord_SaveButton);
         verifyTextPartially(closeChildB4SchoolCheckRecord_ErrorStatusValidation,getAppData().getElement("CLOSEB4SCHOOLRECORD","VERIFYERROR"));
         System.out.println("Status Of the Questionnaire:" + closeChildB4SchoolCheckRecord_ErrorStatusValidation.getText());
+    }
+
+    public void closingB4SchoolChildRecordWithNOConsentAndNoChecksAdded(){
+        waitAndClickElement(closeChildB4SchoolCheckRecord_CloseRecord);
+        waitAndClickElement(closeChildB4SchoolCheckRecord_SaveButton);
+        verifyText(closeChildB4SchoolCheckRecord_StatusClosedValidation,getAppData().getElement("CLOSEB4SCHOOLRECORD","VERIFYSTATUSCLOSED"));
+        System.out.println("Status Of the Questionnaire:" + closeChildB4SchoolCheckRecord_StatusClosedValidation.getText());
     }
 }

@@ -129,6 +129,9 @@ public class SDQParentPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__sdqParent__assessmentStatus']")
     private WebElement sdqParent_StatusCompletedValidation;
 
+    @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__sdqParent__assessmentOutcome']")
+    private WebElement sdqParent_StatusInProgressValidation;
+
     //---------------------- SDQ PARENT ------------------------------------------
 
     public void SDQParent(){
@@ -173,6 +176,15 @@ public class SDQParentPage extends BasePage {
         waitAndClickElement(sdqParent_SaveButton);
         verifyText(sdqParent_StatusCompletedValidation,"Completed");
         System.out.println("Status Of the Questionnaire:" + sdqParent_StatusCompletedValidation.getText());
+
+    }
+    public void SDQParentReferred(){
+        waitAndClickElement(sdqParent_AddNewButton);
+        selectFromDropDownbyIndex(sdqParent_Outcome,5);
+        waitAndClickElement(sdqParent_SaveButton);
+        _ConsentPage.b4SchoolLink();
+        verifyText(sdqParent_StatusInProgressValidation,getAppData().getElement("SDQPARENT","VERIFYREFERRED"));
+        System.out.println("Status Of the Questionnaire:" + sdqParent_StatusInProgressValidation.getText());
 
     }
 }

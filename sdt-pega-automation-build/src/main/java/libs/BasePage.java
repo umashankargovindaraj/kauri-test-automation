@@ -1334,8 +1334,8 @@ public class BasePage extends DriverFactory {
         String actualtext = null;
         String expected = null;
         try {
-            expected = texttoverify.trim().replaceAll("\\s+", "").toLowerCase();
             wait.until(ExpectedConditions.elementToBeClickable(testObject));
+            expected = texttoverify.trim().replaceAll("\\s+", "").toLowerCase();
             actualtext = testObject.getText().trim().replaceAll("\\s+", "").toLowerCase();
             Assert.assertEquals(actualtext, expected);
         } catch (Exception e) {

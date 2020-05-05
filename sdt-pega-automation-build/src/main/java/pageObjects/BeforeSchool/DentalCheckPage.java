@@ -32,7 +32,7 @@ public class DentalCheckPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__dental__assessmentStatus']")
     private WebElement dentalCheck_StatusCompletedValidation;
 
-    @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__generalHealth__assessmentOutcome']")
+    @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__dental__assessmentOutcome']")
     private WebElement dentalCheck_StatusReferredValidation;
 
 
@@ -58,8 +58,8 @@ public class DentalCheckPage extends BasePage {
         sendKeysToWebElement(dentalCheck_Notes,getAppData().getElement("DENTALCHECK","NOTES"));
         waitAndClickElement(dentalCheck_SaveButton);
         _ConsentPage.b4SchoolLink();
-//        verifyText(dentalCheck_StatusReferredValidation,getAppData().getElement("DENTALCHECK","VERIFYINPROGRESS"));
-//        System.out.println("Status Of the Questionnaire:" + dentalCheck_StatusReferredValidation.getText());
+        verifyText(dentalCheck_StatusReferredValidation,getAppData().getElement("DENTALCHECK","VERIFYINPROGRESS"));
+        System.out.println("Status Of the Questionnaire:" + dentalCheck_StatusReferredValidation.getText());
 
     }
 }

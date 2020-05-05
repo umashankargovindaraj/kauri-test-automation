@@ -33,6 +33,9 @@ public class DistanceVisionPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__vision__assessmentStatus']")
     private WebElement vision_StatusCompletedValidation;
 
+    @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__vision__assessmentOutcome']")
+    private WebElement vision_StatusInProgressValidation;
+
     //------------------------  DISTANCE VISION  ---------------------------------------
     public void distanceVision(){
         waitAndClickElement(vision_AddNewButton);
@@ -44,5 +47,15 @@ public class DistanceVisionPage extends BasePage {
         waitAndClickElement(vision_SaveButton);
         verifyText(vision_StatusCompletedValidation,"Completed");
         System.out.println("Status Of the Questionnaire:" + vision_StatusCompletedValidation.getText());
+    }
+
+    public void distanceVisionReferred(){
+        waitAndClickElement(vision_AddNewButton);
+        sendKeysToWebElement(vision_DateCompleted,getAppData().getElement("HEARING","DATECOMPLETED"));
+        selectFromDropDownbyIndex(vision_Outcome,2);
+        waitAndClickElement(vision_SaveButton);
+        _ConsentPage.b4SchoolLink();
+        verifyText(vision_StatusInProgressValidation,getAppData().getElement("HEARING","VERIFYREFERRED"));
+        System.out.println("Status Of the Questionnaire:" + vision_StatusInProgressValidation.getText());
     }
 }

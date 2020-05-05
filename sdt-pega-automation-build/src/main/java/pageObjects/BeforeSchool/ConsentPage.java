@@ -25,6 +25,9 @@ public class ConsentPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//div[@id='ctl00_saveDiv']/input")
     private WebElement consentSaveButton;
+
+    @FindBy(how = How.XPATH, using = "//input[@id='ctl00__pageContentPlaceHolder__consent__consent__radioButton_1']")
+    private WebElement noConsentGivenRadioButton;
     //---------------------------------------------------------------------------------------------------
 
     public void b4SchoolLink(){
@@ -38,5 +41,14 @@ public class ConsentPage extends BasePage {
         selectFromDropDownbyIndex(consentGivenBy,1);
         sendKeysToWebElement(consentDate,getAppData().getElement("CONSENT","DATE"));
         waitAndClickElement(consentSaveButton);
+    }
+
+    public void chooseNOConsentGiven() {
+        waitAndClickElement(noConsentGivenRadioButton);
+        waitAndClickElement(consentTypeRadioButton);
+        selectFromDropDownbyIndex(consentGivenBy,1);
+        sendKeysToWebElement(consentDate,getAppData().getElement("CONSENT","DATE"));
+        waitAndClickElement(consentSaveButton);
+
     }
 }

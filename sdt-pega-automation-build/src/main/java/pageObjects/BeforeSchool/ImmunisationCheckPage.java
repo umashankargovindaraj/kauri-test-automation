@@ -41,6 +41,9 @@ public class ImmunisationCheckPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__immunisation__assessmentStatus']")
     private WebElement immunisationCheck_StatusCompletedValidation;
 
+    @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__b4SchoolChecks__immunisation__assessmentOutcome']")
+    private WebElement immunisationCheck_StatusInProgressValidation;
+
     //******************* IMMUNISATION CHECKS DETAILS PAGE *********************
     public void ImmunisationChecks(){
         waitAndClickElement(immunisationCheck_AddNewButton);
@@ -55,6 +58,23 @@ public class ImmunisationCheckPage extends BasePage {
         waitAndClickElement(immunisationCheck_SaveButton);
         verifyText(immunisationCheck_StatusCompletedValidation,"Completed");
         System.out.println("Status Of the Questionnaire:" + immunisationCheck_StatusCompletedValidation.getText());
+
+    }
+
+    public void ImmunisationCheckReferred(){
+        waitAndClickElement(immunisationCheck_AddNewButton);
+//        selectFromDropDownbyIndex(immunisationCheck_SixWeeks,3);
+//        selectFromDropDownbyIndex(immunisationCheck_ThreeMonths,3);
+//        selectFromDropDownbyIndex(immunisationCheck_FiveMonths,3);
+//        selectFromDropDownbyIndex(immunisationCheck_FifteenMonths,3);
+//        selectFromDropDownbyIndex(immunisationCheck_FourYears,3);
+        sendKeysToWebElement(immunisationCheck_DateCompleted,getAppData().getElement("IMMUNISATION","DATECOMPLETED"));
+        selectFromDropDownbyIndex(immunisationCheck_Outcome,5);
+//        sendKeysToWebElement(immunisationCheck_Notes,getAppData().getElement("IMMUNISATION","NOTESREFERRED"));
+        waitAndClickElement(immunisationCheck_SaveButton);
+        _ConsentPage.b4SchoolLink();
+        verifyText(immunisationCheck_StatusInProgressValidation,getAppData().getElement("IMMUNISATION","VERIFYREFERRED"));
+        System.out.println("Status Of the Questionnaire:" + immunisationCheck_StatusInProgressValidation.getText());
 
     }
 

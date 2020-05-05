@@ -14,4 +14,9 @@ public class ConsentStep extends DriverFactory {
     public void provideConsentDetails() {
         _ConsentPage.provideConsentDetails();
     }
+
+    @And("choose NO to Consent Given field")
+    public void chooseNOToConsentGivenField() {
+        _ConsentPage.chooseNOConsentGiven();
+    }
 }

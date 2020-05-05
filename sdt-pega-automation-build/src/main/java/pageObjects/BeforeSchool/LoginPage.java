@@ -30,6 +30,12 @@ public class LoginPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//input[@id='_selectOrganisationButton']")
     private WebElement organisationOkButton;
 
+    @FindBy(how = How.XPATH, using = "//a[contains(text(),'Log Out')]")
+    private WebElement logOutButton;
+
+
+
+
 
     public void launchApplication() {
         try {
@@ -74,6 +80,11 @@ public class LoginPage extends BasePage {
      public void chooseCoordinatorLocalAdmin(){
                 selectFromDropDownbyValue(organisation,"Auckland DHB");
          waitAndClickElement(organisationOkButton);
+            }
+
+            public void logoutApplication() {
+//        waitAndClickElement(logOutButton);
+                logOutButton.click();
             }
     }
 

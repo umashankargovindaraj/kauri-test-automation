@@ -41,6 +41,7 @@ public class GrowthCheckPage extends BasePage {
 
     //******************* GROWTH CHECKS DETAILS PAGE *********************
     public void growthChecks(){
+        _ConsentPage.b4SchoolLink();
         waitAndClickElement(growthCheck_AddNewButton);
         sendKeysToWebElement(growthCheck_Height,getAppData().getElement("GROWTHCHECK","HEIGHT"));
         sendKeysToWebElement(growthCheck_Weight,getAppData().getElement("GROWTHCHECK","WEIGHT"));

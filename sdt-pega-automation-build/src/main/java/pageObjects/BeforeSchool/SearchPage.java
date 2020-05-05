@@ -23,6 +23,9 @@ public class SearchPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//input[@id='ctl00__pageContentPlaceHolder__searchAllButton']")
     private WebElement searchAllDHBbutton;
 
+    @FindBy(how = How.XPATH, using = "//input[@id='ctl00__pageContentPlaceHolder__searchButton']")
+    private WebElement searchButtonInAllocationTabForCoordinatorLogin;
+
 //**************************  ASSIGN PROVIDER TO THE NEW CHILD  *******************************************************
 
     @FindBy(how = How.XPATH, using = "//a[text()='Assign Provider']")
@@ -36,6 +39,9 @@ public class SearchPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//div [@class='AspNet-GridView']/table/tbody/tr/td[3]/a")
     private WebElement surNameLink;
+
+    @FindBy(how = How.XPATH, using = "//div [@class='AspNet-GridView']/table/tbody/tr/td[8]")
+    private WebElement NHINumberLink;
 
     //************************* WEB ELEMENT NOT USED ********************************************************************
 
@@ -142,8 +148,8 @@ public class SearchPage extends BasePage {
 
     public void searchWithNHINumber(){
 
-//      String storedNhiNumber=getAppData().getFromMap("NHI_NUMBER");  /* used when creating new NHI number from scratch */
-        String storedNhiNumber="XEN6401";  /* hardcode NHI number for intermediate test */
+      String storedNhiNumber=getAppData().getFromMap("NHI_NUMBER");  /* used when creating new NHI number from scratch */
+        //String storedNhiNumber="UQT9330";  /* hardcode NHI number for intermediate test */
         System.out.println("Stored NHI Number"+storedNhiNumber);
         managementNhi.sendKeys(storedNhiNumber);
 //        String fName=getAppData().getFromMap("FirstName");
@@ -167,6 +173,15 @@ public class SearchPage extends BasePage {
     public void surNameLinkClick(){
 
         waitAndClickElement(surNameLink);
+    }
+
+    public void clickSearchButtonandConfirmChildReturnedtoCoordinator() {
+        searchWithNHINumber();
+        waitAndClickElement(searchButtonInAllocationTabForCoordinatorLogin);
+        String storedNhiNumber=getAppData().getFromMap("NHI_NUMBER");
+        System.out.println("Stored NHI Number"+storedNhiNumber);
+        verifyText(NHINumberLink, getAppData().getFromMap("NHI_NUMBER"));
+
     }
 
 }

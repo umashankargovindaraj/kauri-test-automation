@@ -10,4 +10,8 @@ public class DistanceVisionStep extends DriverFactory {
         _DistanceVisionPage.distanceVision();
     }
 
+    @And("fill Distance Vision details and save then confirm status is In Progress in B{int} School Checks Overview Page")
+    public void fillDistanceVisionDetailsAndSaveThenConfirmStatusIsInProgressInBSchoolChecksOverviewPage(int arg0) {
+    _DistanceVisionPage.distanceVisionReferred();
+    }
 }

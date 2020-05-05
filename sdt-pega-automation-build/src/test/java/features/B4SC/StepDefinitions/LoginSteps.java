@@ -1,6 +1,7 @@
 package features.B4SC.StepDefinitions;
 
 import com.sun.tools.xjc.Driver;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,4 +24,14 @@ public class LoginSteps extends DriverFactory {
     }
 
 
+    @Then("login back as coordinator with organisation {string}")
+    public void loginBackAsCoordinatorWithOrganisation(String userType) {
+        _loginPage.launchApplication();
+        _loginPage.login(userType);
+    }
+
+    @And("logout from current user")
+    public void logoutFromCurrentUser() {
+        _loginPage.logoutApplication();
+    }
 }
