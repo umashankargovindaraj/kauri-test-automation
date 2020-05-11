@@ -83,8 +83,8 @@ public class LoginPage extends BasePage {
             }
 
             public void logoutApplication() {
-//        waitAndClickElement(logOutButton);
-                logOutButton.click();
+        waitAndClickElement(logOutButton);
+//                logOutButton.click();
             }
     }
 

@@ -36,8 +36,8 @@ public class ClosingB4SchoolChildRecordPage extends BasePage {
     //--------------------------- CLOSING B4SCHOOL CHILD RECORD ---------------------------------------
 
     public void closingB4SchoolChildRecord(){
-        selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_ProviderChecksLocation,1);
-        selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_VHTChecksLocation,1);
+        selectFromDropDownbyValue(closeChildB4SchoolCheckRecord_ProviderChecksLocation,getAppData().getElement("CLOSEB4SCHOOLRECORD","PROVIDERCHECKLOCATION"));
+        selectFromDropDownbyValue(closeChildB4SchoolCheckRecord_VHTChecksLocation,getAppData().getElement("CLOSEB4SCHOOLRECORD","VHTCHECKLOCATION"));
         waitAndClickElement(closeChildB4SchoolCheckRecord_ChecksCompleted);
         waitAndClickElement(closeChildB4SchoolCheckRecord_CloseRecord);
         sendKeysToWebElement(closeChildB4SchoolCheckRecord_AuditNotes,getAppData().getElement("CLOSEB4SCHOOLRECORD","NOTES"));
@@ -47,8 +47,8 @@ public class ClosingB4SchoolChildRecordPage extends BasePage {
     }
     public void closingB4SchoolChildRecordFAILED(){
         _ConsentPage.b4SchoolLink();
-        selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_ProviderChecksLocation,1);
-        selectFromDropDownbyIndex(closeChildB4SchoolCheckRecord_VHTChecksLocation,1);
+        selectFromDropDownbyValue(closeChildB4SchoolCheckRecord_ProviderChecksLocation,getAppData().getElement("CLOSEB4SCHOOLRECORD","PROVIDERCHECKLOCATION"));
+        selectFromDropDownbyValue(closeChildB4SchoolCheckRecord_VHTChecksLocation,getAppData().getElement("CLOSEB4SCHOOLRECORD","VHTCHECKLOCATION"));
         waitAndClickElement(closeChildB4SchoolCheckRecord_ChecksCompleted);
         waitAndClickElement(closeChildB4SchoolCheckRecord_CloseRecord);
         sendKeysToWebElement(closeChildB4SchoolCheckRecord_AuditNotes,getAppData().getElement("CLOSEB4SCHOOLRECORD","NOTES"));

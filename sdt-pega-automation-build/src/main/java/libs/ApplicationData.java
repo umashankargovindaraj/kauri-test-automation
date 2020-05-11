@@ -5,8 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ApplicationData {
 
@@ -54,6 +53,36 @@ public class ApplicationData {
     }
 
     public String getElement (String pageName, String key) {
-        return applicationDataMap.get(pageName).get(key);
+        String finalData = null;
+        String dataFromTestDataFile = applicationDataMap.get(pageName).get(key);
+        finalData = generateListData(dataFromTestDataFile);
+        return finalData;
+    }
+    public String generateListData(String data) {
+        String testData = null;
+        List<String> conditions = splitCondition(data);
+        testData = getDataFromList(conditions);
+        return testData;
+    }
+    private List<String> splitCondition(String testCondition) {
+        String[] splitStringArray = testCondition.split("\\|");
+        List<String> conditions = new ArrayList<>();
+        for (String condition : splitStringArray) {
+            conditions.add(condition);
+        }
+        return conditions;
+    }
+    private String getDataFromList(List<String> dataList){
+        int maxLength = dataList.size();
+        int dataIndex = generateRandomLength(maxLength,0);
+        return dataList.get(dataIndex);
+    }
+    private int generateRandomLength(int maxLength, int minLength){
+        Random random = new Random();
+        try{
+            return random.nextInt(maxLength - minLength) + minLength;
+        }catch (Exception e){
+            return 1;
+        }
     }
 }

@@ -4,6 +4,7 @@ package pageObjects.BeforeSchool;
 import libs.BasePage;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -12,6 +13,7 @@ import pageObjects.BeforeSchool.CreateChildPage;
 
 
 import java.sql.SQLOutput;
+import java.util.List;
 
 public class SearchPage extends BasePage {
 
@@ -28,7 +30,9 @@ public class SearchPage extends BasePage {
 
 //**************************  ASSIGN PROVIDER TO THE NEW CHILD  *******************************************************
 
-    @FindBy(how = How.XPATH, using = "//a[text()='Assign Provider']")
+//    @FindBy(how = How.XPATH, using = "//a[text()='Assign Provider']")
+
+    @FindBy(how = How.XPATH, using = "//a[@id='ctl00__pageContentPlaceHolder__searchResults_ctl02_ChildSelector']")
     private WebElement assignProviderLink;
 
     @FindBy(how = How.XPATH, using = "//a[@class='AspNet-Menu-Link']")
@@ -53,6 +57,9 @@ public class SearchPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//label[@id='ctl00__faultInformation__errorMessageLabel']/span/span")
     private WebElement NHIerror;
+
+    @FindBy(how = How.XPATH, using = "//div[@CLASS='AspNet-GridView']/TABLE")
+    private WebElement childSerachResultsTable;
 
  //************************************************************************************************************************
     public String generateRandomNAHINumber() {
@@ -133,11 +140,45 @@ public class SearchPage extends BasePage {
     }
 //***************  CALL ABOVE GENERATED NHI NUMBER USING HASH MAP  *************************
     public void enterNHINumber(){
+//        String nhiNumber ="DBG4652";
         String nhiNumber = generateRandomNAHINumber();
         sendKeysToWebElement(nhinumber,nhiNumber);
         getAppData().putToMap("NHI_NUMBER",nhiNumber);
-       // searchAllDHBbutton.click();
         waitAndClickElement(searchAllDHBbutton);
+        verifyNONExistingNHINumber(getAppData().getFromMap("NHI_NUMBER"));
+    }
+
+    private void verifyNONExistingNHINumber(String nhi){
+        boolean found = false;
+        //WebElement table;
+        List<WebElement> tablerows = null;
+        try{
+            //table = _driver.findElement(childSerachResultsTable);
+            //waitForElementLoadedCompletely(table);
+            tablerows = childSerachResultsTable.findElements(By.tagName("thead"));
+            while(!(found)){
+                if(tablerows.isEmpty()){
+                    System.out.println("No record found and NHI number is not in use " + nhi);
+                    found = true;
+                }else{
+                    System.out.println("Record found and NHI is in use" + nhi);
+                    enterManagementTab();
+                    nhi = generateRandomNAHINumber();
+//                    nhi = "QAQ1130";
+                    getAppData().putToMap("NHI_NUMBER",nhi);
+                    sendKeysToWebElement(nhinumber,nhi);
+                    waitAndClickElement(searchAllDHBbutton);
+                    //table = _driver.findElement(By.xpath("//div[@CLASS='AspNet-GridView']/TABLE"));
+                    //waitForElementLoadedCompletely(table);
+                    tablerows = childSerachResultsTable.findElements(By.tagName("thead"));
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Error in finding the results table");
+            Assert.fail("Error in finding results table " + e.getMessage());
+        }
+
+
     }
 
     public void enterManagementTab(){
@@ -149,9 +190,10 @@ public class SearchPage extends BasePage {
     public void searchWithNHINumber(){
 
       String storedNhiNumber=getAppData().getFromMap("NHI_NUMBER");  /* used when creating new NHI number from scratch */
-        //String storedNhiNumber="UQT9330";  /* hardcode NHI number for intermediate test */
+        //String storedNhiNumber="APA2251";  /* hardcode NHI number for intermediate test */
         System.out.println("Stored NHI Number"+storedNhiNumber);
         managementNhi.sendKeys(storedNhiNumber);
+//        waitAndClickElement(searchAllDHBbutton);
 //        String fName=getAppData().getFromMap("FirstName");
 //        existingFirstName.sendKeys(fName);
 //        String sName=getAppData().getFromMap("SurName");

@@ -64,7 +64,7 @@ public class BasePage extends DriverFactory {
         while (attempts < 10) {
             try {
                 this.wait.until(ExpectedConditions.elementToBeClickable(element));
-                waitForPageComponentLoadFluentWait();
+                
                 System.out.println("Successfully found WebElement: " + "<" + element.toString() + ">");
                 Thread.sleep(100);
             } catch (Exception e) {
@@ -90,6 +90,8 @@ public class BasePage extends DriverFactory {
     public void waitAndClickElement(WebElement element) {
         boolean clicked = false;
         int attempts = 0;
+        waitForLoad(_driver);
+        waitForElementLoadedCompletely(element);
         while (!clicked && attempts < 10) {
             try {
                 this.wait.until(ExpectedConditions.elementToBeClickable(element)).click();
@@ -102,6 +104,20 @@ public class BasePage extends DriverFactory {
             }
             attempts++;
         }
+    }
+
+    /**
+     * wait for page load
+     */
+    public void waitForLoad(WebDriver driver) {
+        ExpectedCondition<Boolean> pageLoadCondition = new
+                ExpectedCondition<Boolean>() {
+                    public Boolean apply(WebDriver driver) {
+                        return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                    }
+                };
+        //WebDriverWait wait = new WebDriverWait(driver, 30);
+        this.wait.until(pageLoadCondition);
     }
 
     public void selectFromDropDownbyIndex(WebElement element, int index) {
@@ -121,25 +137,25 @@ public class BasePage extends DriverFactory {
     public void selectFromDropDownbyValue(WebElement element, String value) {
         Select select;
         try {
-            //waitForPageComponentLoadFluentWait();
+            //
             //actionClick(element);
             //this.WaitUntilWebElementIsVisible(element);
             try {
                 select = new Select(element);
                 select.selectByVisibleText(value);
-               // waitForPageComponentLoadFluentWait();
+               // 
             } catch (StaleElementReferenceException staleElement) {
                 element = getUpdatedReferenceOfStaleElement(element);
                 select = new Select(element);
-               // waitForPageComponentLoadFluentWait();
+               // 
                 select.selectByVisibleText(value);
-               // waitForPageComponentLoadFluentWait();
+               // 
             }
         } catch (Exception e) {
             System.out.println("Unable to find the object");
             Assert.fail("Unable to find the object: " + e.getMessage());
         }
-        //waitForPageComponentLoadFluentWait();
+        //
     }
 
 
@@ -154,7 +170,7 @@ public class BasePage extends DriverFactory {
         try {
             ob.moveToElement(element).click().build().perform();
             System.out.println("Successfully Action Clicked on the WebElement, using locator: " + "<" + element.toString() + ">");
-            waitForPageComponentLoadFluentWait();
+            
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement elementToClick = element;
             Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(elementToClick)).isEnabled();
@@ -173,7 +189,7 @@ public class BasePage extends DriverFactory {
         try {
             ob.moveToElement(element, x, y).click().build().perform();
             System.out.println("Successfully Action Clicked on the WebElement, using locator: " + "<" + element.toString() + ">");
-            waitForPageComponentLoadFluentWait();
+            
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement elementToClick = element;
             Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(elementToClick)).isEnabled();
@@ -190,24 +206,24 @@ public class BasePage extends DriverFactory {
 
     public void selectFromDropDownbyValueByClick(WebElement element, String value) {
         try {
-            this.wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
+            this.wait.until(new ExpectedCondition<Boolean>() {
                 public Boolean apply(WebDriver driver) {
                     Select select = new Select(element);
                     return select.getOptions().size() > 1;
                 }
             });
             //element.click();
-            waitForPageComponentLoadFluentWait();
+            
             Select select = new Select(element);
             List<WebElement> options = select.getOptions();
             System.out.println("DROPDOWN BY CLICK: SELECT OPTIONS COUNT: " + options.size());
             for (WebElement listElement : options) {
                 System.out.println(listElement.getText().trim());
                 if (listElement.getText().trim().equalsIgnoreCase(value)) {
-                    waitForPageComponentLoadFluentWait();
+                    
                     try {
                         listElement.click();
-                        waitForPageComponentLoadFluentWait();
+                        
                         System.out.println("Option clicked : " + listElement.getText());
                         return;
                     } catch (StaleElementReferenceException ele) {
@@ -226,7 +242,7 @@ public class BasePage extends DriverFactory {
             this.WaitUntilWebElementIsVisible(element);
             Select select = new Select(element);
             allListValues = select.getOptions();
-            waitForPageComponentLoadFluentWait();
+            
         } catch (Exception e) {
             System.out.println("Unable to find the object");
             Assert.fail("Unable to find the object: " + e.getMessage());
@@ -240,7 +256,7 @@ public class BasePage extends DriverFactory {
         while (!clicked && attempts < 10) {
             try {
                 this.wait.until(ExpectedConditions.elementToBeClickable(by)).click();
-                waitForPageComponentLoadFluentWait();
+                
                 System.out.println("Successfully clicked on the element using by locator: " + "<" + by.toString() + ">");
                 clicked = true;
             } catch (Exception e) {
@@ -257,7 +273,7 @@ public class BasePage extends DriverFactory {
             tempWait.until(ExpectedConditions.elementToBeClickable(list)).click();
             list.sendKeys(textToSearchFor);
             list.sendKeys(Keys.ENTER);
-            waitForPageComponentLoadFluentWait();
+            
             System.out.println("Successfully sent the following keys: " + textToSearchFor + ", to the following WebElement: " + "<" + list.toString() + ">");
         } catch (Exception e) {
             System.out.println("Unable to sendResultsToElasticSearch the following keys: " + textToSearchFor + ", to the following WebElement: " + "<" + list.toString() + ">");
@@ -271,8 +287,6 @@ public class BasePage extends DriverFactory {
             final WebDriverWait customWait = new WebDriverWait(_driver, timeout);
             customWait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
             locator.click();
-            waitForPageComponentLoadFluentWait();
-
             System.out.println("Successfully clicked on the WebElement, using locator: " + "<" + locator + ">" + ", using a custom Timeout of: " + timeout);
         } catch (Exception e) {
             System.out.println("Unable to click on the WebElement, using locator: " + "<" + locator + ">" + ", using a custom Timeout of: " + timeout);
@@ -287,7 +301,7 @@ public class BasePage extends DriverFactory {
             ob.moveToElement(element).click().build().perform();
             System.out.println("Successfully Action Moved and Clicked on the WebElement, using locator: " + "<" + element.toString() + ">");
 
-            waitForPageComponentLoadFluentWait();
+            
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement elementToClick = element;
             Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(elementToClick)).isEnabled();
@@ -311,14 +325,14 @@ public class BasePage extends DriverFactory {
                 ob.moveToElement(elementToClick).click().build().perform();
                 System.out.println("Action moved and clicked on the following element, using By locator: " + "<" + element.toString() + ">");
 
-                waitForPageComponentLoadFluentWait();
+                
             }
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement elementToClick = _driver.findElement(element);
             ob.moveToElement(elementToClick).click().build().perform();
             System.out.println("(Stale Exception) - Action moved and clicked on the following element, using By locator: " + "<" + element.toString() + ">");
 
-            waitForPageComponentLoadFluentWait();
+            
         } catch (Exception e) {
             System.out.println("Unable to Action Move and Click on the WebElement using by locator: " + "<" + element.toString() + ">");
             Assert.fail("Unable to Action Move and Click on the WebElement using by locator, Exception: " + e.getMessage());
@@ -366,7 +380,7 @@ public class BasePage extends DriverFactory {
             this.wait.until(ExpectedConditions.visibilityOf(element)).isEnabled();
             jsExecutor.executeScript("arguments[0].scrollIntoView();", element);
             jsExecutor.executeScript("window.scrollBy(0, -400)");
-            waitForPageComponentLoadFluentWait();
+            
             System.out.println("Successfully scrolled to the WebElement, using locator: " + "<" + element.toString() + ">");
         } catch (Exception e) {
             System.out.println("Unable to scroll to the WebElement, using locator: " + "<" + element.toString() + ">");
@@ -387,7 +401,7 @@ public class BasePage extends DriverFactory {
 
     public void waitAndclickElementUsingJS(WebElement element) {
         try {
-            waitForPageComponentLoadFluentWait();
+            
             String elementName = element.toString();
             //jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
             jsExecutor.executeScript("arguments[0].click();", element);
@@ -395,7 +409,7 @@ public class BasePage extends DriverFactory {
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement staleElement = element;
             Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(staleElement)).isEnabled();
-            waitForPageComponentLoadFluentWait();
+            
             if (elementPresent == true) {
                 jsExecutor.executeScript("arguments[0].click();", staleElement);
                 System.out.println("(Stale Exception) Successfully JS clicked on the following WebElement: " + "<" + staleElement.toString() + ">");
@@ -405,20 +419,20 @@ public class BasePage extends DriverFactory {
             System.out.println("Unable to JS click on the following WebElement: " + "<" + element.toString() + ">");
             Assert.fail("Unable to JS click on the WebElement, Exception: " + e.getMessage());
         }
-        waitForPageComponentLoadFluentWait();
+
     }
 
 
     public void waitAndclickElementUsingJSAndExit(WebElement element) {
         try {
-            waitForPageComponentLoadFluentWait();
+
             String elementName = element.toString();
             jsExecutor.executeScript("var elem=arguments[0]; setTimeout(function() {elem.click();}, 100)", element);
             System.out.println("Successfully JS clicked on the following WebElement: " + "<" + elementName + ">");
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement staleElement = element;
             boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(staleElement)).isEnabled();
-            waitForPageComponentLoadFluentWait();
+            
             if (elementPresent) {
                 jsExecutor.executeScript("arguments[0].click();", staleElement);
                 System.out.println("(Stale Exception) Successfully JS clicked on the following WebElement: " + "<" + staleElement.toString() + ">");
@@ -428,7 +442,7 @@ public class BasePage extends DriverFactory {
             System.out.println("Unable to JS click on the following WebElement: " + "<" + element.toString() + ">");
             Assert.fail("Unable to JS click on the WebElement, Exception: " + e.getMessage());
         }
-        // waitForPageComponentLoadFluentWait();
+        // 
     }
 
     public void jsClick(WebElement element) {
@@ -561,17 +575,16 @@ public class BasePage extends DriverFactory {
     public boolean isElementEnabled(WebElement element) {
         try {
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-            waitForPageComponentLoadFluentWait();
+            
             this.WaitUntilWebElementIsVisible(element);
-            waitForPageComponentLoadFluentWait();
+
             return element.isEnabled();
         } catch (StaleElementReferenceException staleException) {
             WebElement staleElement = getUpdatedReferenceOfStaleElement(element);
             handleStaleExceptionError(staleElement);
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", staleElement);
-            waitForPageComponentLoadFluentWait();
+
             this.WaitUntilWebElementIsVisible(staleElement);
-            waitForPageComponentLoadFluentWait();
             return element.isEnabled();
         } catch (Exception e) {
             System.out.println("Unable to find the object in isElementEnabled()");
@@ -583,9 +596,9 @@ public class BasePage extends DriverFactory {
     public String getDefaultSelectedOptionForDropDown(WebElement element) {
         try {
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-            /*waitForPageComponentLoadFluentWait();
+            /*
             this.WaitUntilWebElementIsVisible(element);
-            waitForPageComponentLoadFluentWait();*/
+            */
             Select select = new Select(element);
             WebElement option = select.getFirstSelectedOption();
             String defaultItem = option.getText().trim();
@@ -594,9 +607,9 @@ public class BasePage extends DriverFactory {
             WebElement staleElement = getUpdatedReferenceOfStaleElement(element);
             handleStaleExceptionError(staleElement);
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", staleElement);
-            /*waitForPageComponentLoadFluentWait();
+            /*
             this.WaitUntilWebElementIsVisible(staleElement);
-            waitForPageComponentLoadFluentWait();*/
+            */
             Select select = new Select(element);
             WebElement option = select.getFirstSelectedOption();
             String defaultItem = option.getText().trim();
@@ -633,7 +646,7 @@ public class BasePage extends DriverFactory {
 
     public boolean isDisplayed(WebElement element) {
         try {
-            waitForPageComponentLoadFluentWait();
+            
             try {
                 boolean elementFound = element.isDisplayed();
                 return true;
@@ -650,9 +663,9 @@ public class BasePage extends DriverFactory {
         boolean elementVisible = false;
         try {
             jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-            waitForPageComponentLoadFluentWait();
+            
             this.WaitUntilWebElementIsVisible(element);
-            waitForPageComponentLoadFluentWait();
+            
             elementVisible = element.isDisplayed();
         } catch (NoSuchElementException e) {
             elementNotFound = true;
@@ -666,14 +679,13 @@ public class BasePage extends DriverFactory {
     }
 
     public boolean isElementListDisplayed(List<WebElement> elements) {
-        waitForPageComponentLoadFluentWait();
+        
         boolean elementFound = false;
         try {
             for (WebElement element : elements) {
                 jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-                waitForPageComponentLoadFluentWait();
+
                 this.WaitUntilWebElementIsVisible(element);
-                waitForPageComponentLoadFluentWait();
                 elementFound = element.isDisplayed();
                 if (!elementFound) {
                     return false;
@@ -694,7 +706,6 @@ public class BasePage extends DriverFactory {
         String value = null;
         while (!clicked && attempts < 10) {
             try {
-                waitForPageComponentLoadFluentWait();
                 value = this.wait.until(ExpectedConditions.elementToBeClickable(element)).getText();
                 System.out.println("Successfully retrieved text from WebElement: " + "<" + element.toString() + ">");
                 clicked = true;
@@ -702,7 +713,7 @@ public class BasePage extends DriverFactory {
                 System.out.println("Unable to wait and retrieve text on WebElement, Exception: " + e.getMessage());
                 Assert.fail("Unable to wait and retrieve text from the WebElement, using locator: " + "<" + element.toString() + ">");
             }
-            waitForPageComponentLoadFluentWait();
+            
             attempts++;
         }
         return value;
@@ -712,7 +723,7 @@ public class BasePage extends DriverFactory {
     public String getAttributeValue(WebElement element, String attribute) {
         String value = "";
         try {
-            waitForPageComponentLoadFluentWait();
+            
             value = this.wait.until(ExpectedConditions.visibilityOf(element)).getAttribute(attribute);
             return value;
         } catch (Exception e) {
@@ -729,133 +740,14 @@ public class BasePage extends DriverFactory {
         _driver.switchTo().frame(validFrame);
     }
 
-    public void waitForPageComponentLoad() {
-        try {
-            //driver.switchTo().defaultContent();
-            new WebDriverWait(_driver, 30).until(ExpectedConditions.presenceOfElementLocated(
-                    By.xpath("//div[@class='document-statetracker' and @data-state-busy-status='none']")));
-            //switchToBrowserFrame();
-        } catch (Exception e) {
-            System.out.println("Issue in finding document state tracker");
-        }
-    }
 
-    public void waitForPageComponentLoadFluentWait_Tushar() {
-        Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(_driver)
-                .withTimeout(Duration.ofSeconds(60))
-                .pollingEvery(Duration.ofSeconds(2))
-                .ignoring(java.util.NoSuchElementException.class);
-
-        WebElement element = fluentWait.until(new Function<WebDriver, WebElement>() {
-            @Override
-            public WebElement apply(WebDriver webDriver) {
-                WebElement ele = null;
-                //boolean loop = true;
-                //int loopCounter = 0;
-                //while (loop) {
-                try {
-                    ele = wait.until(ExpectedConditions.presenceOfElementLocated(
-                            By.xpath("//div[@class='document-statetracker' and @data-state-busy-status='none']")));
-                    //loop = false;
-                } catch (Exception e) {
-                    //loopCounter++;
-                    //if (loopCounter > 1) {
-                    //loop = false;
-                    //}
-//                        try {
-//                            Thread.sleep(1000);
-//                        } catch (InterruptedException ex) {
-//                            ex.printStackTrace();
-//                        }
-                    System.out.println("DOM still busy");
-                }
-                //}
-                return ele;
-                /*return wait.until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//div[@class='document-statetracker' and @data-state-busy-status='none']")));*/
-            }
-        });
-    }
-
-    public void waitForPageComponentLoadFluentWait() {
-        Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(_driver)
-                .withTimeout(Duration.ofSeconds(60))
-                .pollingEvery(Duration.ofSeconds(2))
-                .ignoring(java.util.NoSuchElementException.class);
-
-        WebElement element = fluentWait.until(new Function<WebDriver, WebElement>() {
-            @Override
-            public WebElement apply(WebDriver webDriver) {
-                WebElement ele = null;
-                boolean loop = true;
-                int loopCounter = 0;
-                while (loop) {
-                    try {
-                        ele = wait.until(ExpectedConditions.presenceOfElementLocated(
-                                By.xpath("//div[@class='document-statetracker' and @data-state-busy-status='none']")));
-                        System.out.println("DOM OK");
-                        loop = false;
-                    } catch (Exception e) {
-                        loopCounter++;
-                        if (loopCounter > 1) {
-                            loop = false;
-                        }
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException ex) {
-                            ex.printStackTrace();
-                        }
-                        System.out.println("DOM still busy");
-                    }
-                }
-                return ele;
-                /*return wait.until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//div[@class='document-statetracker' and @data-state-busy-status='none']")));*/
-            }
-        });
-    }
-
-
-    public void waitForPageComponentLoadFluentWait1() {
-
-        Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(_driver)
-                .withTimeout(Duration.ofSeconds(60))
-                .pollingEvery(Duration.ofSeconds(2))
-                .ignoring(java.util.NoSuchElementException.class);
-
-        WebElement element = fluentWait.until(new Function<WebDriver, WebElement>() {
-            @Override
-            public WebElement apply(WebDriver webDriver) {
-                WebElement ele = null;
-                WebElement eleBusy = null;
-                boolean loop = true;
-                int loopCounter = 0;
-                while (loop) {
-                    try {
-                        ele = wait.until(ExpectedConditions.presenceOfElementLocated(
-                                By.xpath("//div[@class='document-statetracker' and @data-state-busy-status='none']")));
-                        loop = false;
-                        System.out.println("DOM OK");
-                    } catch (WebDriverException e) {
-                        eleBusy = wait.until(ExpectedConditions.presenceOfElementLocated(
-                                By.xpath("//div[@class='document-statetracker' and @data-state-busy-status='none'] | //div[@class='document-statetracker' and @data-state-busy-status='busy']")));
-                        System.out.println("DOM Still busy");
-                    } catch (Exception e) {
-                        System.out.println("ABC");
-                        System.exit(1);
-                    }
-                }
-                return ele;
-            }
-        });
-    }
 
     /**
      * select a value from the lookup field , mainly for address
      */
     public void selectLookupValue(WebElement field, List<WebElement> autoCompleteList, String texttolookup, boolean isFieldAddress) {
         try {
-            waitForPageComponentLoadFluentWait();
+
             jsExecutor.executeScript("arguments[0].click();", field);
             if (isFieldAddress) {
                 keyInWholeDataOnlyAfterFirstXChars(field, texttolookup);
@@ -864,7 +756,7 @@ public class BasePage extends DriverFactory {
                 field.sendKeys(Keys.ARROW_DOWN);
             }
             waitForLookUpAutoCompleteAjaxToLoad(field, texttolookup);
-            waitForPageComponentLoadFluentWait();
+
             System.out.println("check 1");
             autoCompleteList = getUpdatedReferenceOfStaleElementList(autoCompleteList);
             System.out.println("check 2");
@@ -880,7 +772,7 @@ public class BasePage extends DriverFactory {
                     System.out.println("VALUE EXPECTED     : " + texttolookup);
                     if (listValues.getText().trim().equalsIgnoreCase(texttolookup.trim())) {
                         listValues.click();
-                        waitForPageComponentLoadFluentWait();
+                        
                         break;
                     }
                 } catch (StaleElementReferenceException staleException) {
@@ -888,7 +780,7 @@ public class BasePage extends DriverFactory {
                     handleStaleExceptionError(staleElement);
                     if (staleElement.getText().trim().equalsIgnoreCase(texttolookup.trim())) {
                         staleElement.click();
-                        waitForPageComponentLoadFluentWait();
+                        
                         break;
                     }
                 }
@@ -901,7 +793,7 @@ public class BasePage extends DriverFactory {
     public void keyInWholeDataOnlyAfterFirstXChars(WebElement element, String value) {
         int holdAfterCharacters = 4;
         element.sendKeys(value.substring(0, holdAfterCharacters));
-        waitForPageComponentLoadFluentWait();
+        
         element.sendKeys(value.substring(holdAfterCharacters));
 
     }
@@ -913,7 +805,7 @@ public class BasePage extends DriverFactory {
             char c = value.charAt(i);
             String s = new StringBuilder().append(c).toString();
             element.sendKeys(s);
-            waitForPageComponentLoadFluentWait();
+            
             System.out.println("Entered key in enterDataOneAtATime method : " + s);
             try {
                 if (getAttributeValue(element, "data-change-lazy").equalsIgnoreCase("true")) {
@@ -946,12 +838,12 @@ public class BasePage extends DriverFactory {
         try {
             boolean valueFound = false;
             //WebElement lookupField = field.(By.xpath("//input[@data-test-id='2019031415200802003627']"));
-            waitForPageComponentLoadFluentWait();
+            
             field.clear();
             field.sendKeys(texttolookup);
-            waitForPageComponentLoadFluentWait();
+            
             field.sendKeys(Keys.ARROW_DOWN);
-            waitForPageComponentLoadFluentWait();
+            
             List<WebElement> autoCompleteList = _driver.findElements(By.xpath("//*[@class='cellIn']/span"));
             if (autoCompleteList.size() == 0) {
                 Assert.fail("autoComplete list NOT found");
@@ -975,12 +867,12 @@ public class BasePage extends DriverFactory {
     public void verifyValueNotExistInLookupList(WebElement field, String texttolookup) {
         try {
             boolean valueFound = false;
-            waitForPageComponentLoadFluentWait();
+            
             field.clear();
             field.sendKeys(texttolookup);
-            waitForPageComponentLoadFluentWait();
+            
             field.sendKeys(Keys.ARROW_DOWN);
-            waitForPageComponentLoadFluentWait();
+            
             List<WebElement> autoCompleteList = _driver.findElements(By.xpath("//*[@class='cellIn']/span"));
             if (autoCompleteList.size() == 0) {
                 System.out.println("autoComplete list Found with elements: " + autoCompleteList.size());
@@ -1002,7 +894,7 @@ public class BasePage extends DriverFactory {
 
 
     public void updateDatePickerUsingJavaScript(String value, String xpathSpanLocator, String xpathInputLocator) {
-        waitForPageComponentLoadFluentWait();
+        
         String javaScriptCode = "function getElementByXpath(path) { " +
                 "return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;" +
                 "}; " +
@@ -1015,7 +907,7 @@ public class BasePage extends DriverFactory {
     }
 
     public void updateFieldValueUsingJavaScript(String xpathLocator, String value) {
-        waitForPageComponentLoadFluentWait();
+        
         String javaScriptCode = "function getElementByXpath(path) { " +
                 "return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;" +
                 "}; " +
@@ -1027,7 +919,7 @@ public class BasePage extends DriverFactory {
     }
 
     public void updateFieldValueUsingJavaScriptMobile(String xpathLocator, String value, String xpathHiddenElement, String formattedValue) {
-        waitForPageComponentLoadFluentWait();
+        
         String javaScriptCode = "function getElementByXpath(path) { " +
                 "return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;" +
                 "}; " +
@@ -1090,7 +982,7 @@ public class BasePage extends DriverFactory {
         Boolean object = fluentWait.until(new Function<WebDriver, Boolean>() {
             @Override
             public Boolean apply(WebDriver webDriver) {
-                waitForPageComponentLoadFluentWait();
+                
                 try {
                     Select select = new Select(element);
                     for (WebElement item : select.getOptions()) {
@@ -1122,7 +1014,7 @@ public class BasePage extends DriverFactory {
         Boolean object = fluentWait.until(new Function<WebDriver, Boolean>() {
             @Override
             public Boolean apply(WebDriver webDriver) {
-                waitForPageComponentLoadFluentWait();
+                
                 try {
                     return isStringUpperCase(element.getText());
                 } catch (StaleElementReferenceException e) {
@@ -1141,7 +1033,7 @@ public class BasePage extends DriverFactory {
         Boolean object = fluentWait.until(new Function<WebDriver, Boolean>() {
             @Override
             public Boolean apply(WebDriver webDriver) {
-                waitForPageComponentLoadFluentWait();
+                
                 try {
                     if (getAttributeValue(element, "value").equalsIgnoreCase(value)) {
                         return true;
@@ -1248,14 +1140,14 @@ public class BasePage extends DriverFactory {
 
     public void clickelementAndCloseAlert(WebElement element) {
         try {
-            waitForPageComponentLoadFluentWait();
+            
             wait.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
 
         } catch (StaleElementReferenceException elementUpdated) {
             WebElement staleElement = element;
             Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(staleElement)).isEnabled();
-            waitForPageComponentLoadFluentWait();
+            
             if (elementPresent == true) {
                 jsExecutor.executeScript("arguments[0].click();", staleElement);
                 System.out.println("(Stale Exception) Successfully JS clicked on the following WebElement: " + "<" + staleElement.toString() + ">");

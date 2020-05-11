@@ -1,6 +1,7 @@
 package pageObjects.BeforeSchool;
 
 import libs.BasePage;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -29,19 +30,34 @@ public class CareGiverPage extends BasePage {
     //******************* CAREGIVER DETAILS PAGE *********************
 
     public void careGiverLinkClick(){
+
         waitAndClickElement(careGiverLink);
     }
+
+    public String generateFirstNameForCareGiver(){
+        String firName = RandomStringUtils.randomAlphabetic( 5);
+        getAppData().putToMap("careGiversFirstName",firName);
+        return firName;
+    }
+    public String generateSurNameForCareGiver(){
+        String suName = RandomStringUtils.randomAlphabetic( 5);
+        getAppData().putToMap("careGiversSurName",suName);
+        return suName;
+    }
     public void fillCareGiverDetailsPage(){
+
         selectFromDropDownbyValue(careGiverRelationship,getAppData().getElement("CAREGIVER","RELATIONSHIP"));
-        sendKeysToWebElement(careGiverFirstName,_CreateChildPage.generateFirstName());
-        sendKeysToWebElement(careGiverSurName,_CreateChildPage.generateSurName());
+        sendKeysToWebElement(careGiverFirstName,generateFirstNameForCareGiver());
+        sendKeysToWebElement(careGiverSurName,generateSurNameForCareGiver());
         waitAndClickElement(careGiverSaveButton);
         // waitAndClickElement(_CreateChildPage.saveButtonOnChildInformationPage); /* calling the webelement from SearchPage using public static variable */
     }
 
     public void verifyCareGiverRecordUpdated(){
 
-        verifyTextPartially(verifyCareGiverMessage,"Mother");
+        verifyTextPartially(verifyCareGiverMessage, getAppData().getFromMap("careGiversFirstName"));
+        verifyTextPartially(verifyCareGiverMessage, getAppData().getFromMap("careGiversSurName"));
+
     }
 
 }

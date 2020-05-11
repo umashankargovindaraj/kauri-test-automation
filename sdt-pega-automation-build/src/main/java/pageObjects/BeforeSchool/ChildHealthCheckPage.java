@@ -78,10 +78,10 @@ public void ChildHealthQuestionnaire(){
     waitAndClickElement(questionnaire_CaregiverSmokeIndoors);
     waitAndClickElement(questionnaire_CaregiverAnyOtherConcernsSharedWithNurse);
     sendKeysToWebElement(questionnaire_QuestionaireDateCompleted,getAppData().getElement("CHILDHEALTHQUESTIONAIRE","DATE"));
-    selectFromDropDownbyIndex(questionnaire_QuestionaireOutcome,1);
+    selectFromDropDownbyValue(questionnaire_QuestionaireOutcome,getAppData().getElement("CHILDHEALTHQUESTIONAIRE","QUESTIONAIREOUTCOME"));
     sendKeysToWebElement(questionnaire_QuestionaireNotes,getAppData().getElement("CHILDHEALTHQUESTIONAIRE","NOTES"));
     waitAndClickElement(questionnaire_SaveButton);
-    verifyText(questionnaire_StatusCompletedValidation,"Completed");
+    verifyText(questionnaire_StatusCompletedValidation,getAppData().getElement("CHILDHEALTHQUESTIONAIRE","STATUSCOMPLETIONVALIDATION"));
     System.out.println("Status Of the Questionnaire:" + questionnaire_StatusCompletedValidation.getText());
 
 }

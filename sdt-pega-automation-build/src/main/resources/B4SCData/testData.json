@@ -4,8 +4,6 @@
     "PASS_WORD": "Welcome13"
   },
   "CREATE_CHILD": {
-    "FIRSTNAME": "Tushar",
-    "NHI_NUMBER": "1234",
     "DOB": "10/04/2015",
     "ETHNICITY1": "Tongan"
   },
@@ -18,6 +16,8 @@
   },
   "CHILDHEALTHQUESTIONAIRE": {
     "MEDICALCENTREPHONE": "0220982310",
+    "QUESTIONAIREOUTCOME" : "Completed - Advice Given",
+    "STATUSCOMPLETIONVALIDATION" : "Completed",
     "DATE": "07/04/2020",
     "NOTES": "Test Questionaire completed"
   },
@@ -67,7 +67,9 @@
   "CLOSEB4SCHOOLRECORD": {
     "NOTES": "All B4School checks completed hence closing child record from B4School Application.",
     "VERIFYERROR": "Cannot close campaign until all referrals are completed",
-    "VERIFYSTATUSCLOSED": "CLOSED"
+    "VERIFYSTATUSCLOSED": "CLOSED",
+    "PROVIDERCHECKLOCATION" : "General Practice",
+    "VHTCHECKLOCATION" : "General Practice"
   },
   "COMMON": {
     "STATUS": "Completed"
