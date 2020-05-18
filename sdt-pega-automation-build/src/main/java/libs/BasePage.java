@@ -15,6 +15,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 
@@ -121,6 +123,7 @@ public class BasePage extends DriverFactory {
     }
 
     public void selectFromDropDownbyIndex(WebElement element, int index) {
+        waitForElementLoadedCompletely(element);
         try {
             this.WaitUntilWebElementIsVisible(element);
             Select select = new Select(element);
@@ -137,9 +140,7 @@ public class BasePage extends DriverFactory {
     public void selectFromDropDownbyValue(WebElement element, String value) {
         Select select;
         try {
-            //
-            //actionClick(element);
-            //this.WaitUntilWebElementIsVisible(element);
+            waitForElementLoadedCompletely(element);
             try {
                 select = new Select(element);
                 select.selectByVisibleText(value);
@@ -167,17 +168,10 @@ public class BasePage extends DriverFactory {
 
     public void actionClick(WebElement element) {
         Actions ob = new Actions(_driver);
+        waitForElementLoadedCompletely(element);
         try {
             ob.moveToElement(element).click().build().perform();
             System.out.println("Successfully Action Clicked on the WebElement, using locator: " + "<" + element.toString() + ">");
-            
-        } catch (StaleElementReferenceException elementUpdated) {
-            WebElement elementToClick = element;
-            Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(elementToClick)).isEnabled();
-            if (elementPresent) {
-                ob.moveToElement(elementToClick).click().build().perform();
-                System.out.println("(Stale Exception) - Successfully Action Moved and Clicked on the WebElement, using locator: " + "<" + element.toString() + ">");
-            }
         } catch (Exception e) {
             System.out.println("Unable to Action Click on the WebElement, using locator: " + "<" + element.toString() + ">");
             Assert.fail("Unable to Action Click on the WebElement, Exception: " + e.getMessage());
@@ -342,7 +336,7 @@ public class BasePage extends DriverFactory {
     public void sendKeysToWebElement(WebElement element, String textToSend) {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(element));
-            //element.clear();
+            element.clear();
             element.sendKeys(textToSend);
             //sendTABKey(element);
             System.out.println("Successfully Sent the following keys: '" + textToSend + "' to element: " + "<" + element.toString() + ">");
@@ -401,23 +395,19 @@ public class BasePage extends DriverFactory {
 
     public void waitAndclickElementUsingJS(WebElement element) {
         try {
-            
+            waitForElementLoadedCompletely(element);
             String elementName = element.toString();
             //jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
             jsExecutor.executeScript("arguments[0].click();", element);
             System.out.println("Successfully JS clicked on the following WebElement: " + "<" + elementName + ">");
-        } catch (StaleElementReferenceException elementUpdated) {
-            WebElement staleElement = element;
-            Boolean elementPresent = wait.until(ExpectedConditions.elementToBeClickable(staleElement)).isEnabled();
-            
-            if (elementPresent == true) {
-                jsExecutor.executeScript("arguments[0].click();", staleElement);
-                System.out.println("(Stale Exception) Successfully JS clicked on the following WebElement: " + "<" + staleElement.toString() + ">");
-
-            }
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             System.out.println("Unable to JS click on the following WebElement: " + "<" + element.toString() + ">");
             Assert.fail("Unable to JS click on the WebElement, Exception: " + e.getMessage());
+        }
+        if (isAlertPresent()) {
+            _driver.switchTo().alert();
+            _driver.switchTo().alert().accept();
+            _driver.switchTo().defaultContent();
         }
 
     }
@@ -1225,6 +1215,7 @@ public class BasePage extends DriverFactory {
     public void verifyText(WebElement testObject, String texttoverify) {
         String actualtext = null;
         String expected = null;
+        waitForElementLoadedCompletely(testObject);
         try {
             wait.until(ExpectedConditions.elementToBeClickable(testObject));
             expected = texttoverify.trim().replaceAll("\\s+", "").toLowerCase();
@@ -1254,4 +1245,18 @@ public class BasePage extends DriverFactory {
             System.out.println("Error found " + e.getMessage());
         }
     }
+
+    public void attachFile (WebElement element, String filePath) {
+        System.out.println("BASE PATH : " + System.getProperty("user.dir"));
+        waitForElementLoadedCompletely(element);
+        try {
+//            if(_driver instanceof RemoteWebDriver){
+//                ((RemoteWebDriver) _driver).setFileDetector(new LocalFileDetector());
+//            }
+            element.sendKeys(System.getProperty("user.dir") + filePath);
+        }catch (Exception e){
+            Assert.fail("Uploading the document failed " + e.getMessage());
+            System.out.println(e);
+        }
     }
+}

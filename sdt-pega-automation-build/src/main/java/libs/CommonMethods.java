@@ -144,7 +144,7 @@ public class CommonMethods {
 
     public void deleteTestFiles() {
         try {
-            FileUtils.cleanDirectory(new File("/Users/rijuvijayan/IdeaProjects/sdt-test-automation/sdt-pega-automation-build/files"));
+            FileUtils.cleanDirectory(new File(System.getProperty("user.dir") + "/files"));
         } catch (IOException e) {
             System.out.println("Directory not found to clear");
         }

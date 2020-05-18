@@ -7,25 +7,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import pageObjects.BeforeSchool.LoginPage;
-import pageObjects.BeforeSchool.SearchPage;
-import pageObjects.BeforeSchool.CreateChildPage;  /* import the created page */
-import pageObjects.BeforeSchool.ConsentPage;
-import pageObjects.BeforeSchool.CareGiverPage;
-import pageObjects.BeforeSchool.ChildHealthCheckPage;
-import pageObjects.BeforeSchool.DentalCheckPage;
-import pageObjects.BeforeSchool.GrowthCheckPage;
-import pageObjects.BeforeSchool.ImmunisationCheckPage;
-import pageObjects.BeforeSchool.PEDSPage;
-import pageObjects.BeforeSchool.SDQParentPage;
-import pageObjects.BeforeSchool.SDQTeacherPage;
-import pageObjects.BeforeSchool.VisionAndHearingCheckPage;
-import pageObjects.BeforeSchool.HearingPage;
-import pageObjects.BeforeSchool.DistanceVisionPage;
-import pageObjects.BeforeSchool.ClosingB4SchoolChildRecordPage;
-import pageObjects.BeforeSchool.DentalReferralPage;
-import pageObjects.BeforeSchool.VisionReferralPage;
-import pageObjects.BeforeSchool.ReturnChildToCoordinatorPage;
+import pageObjects.BeforeSchool.*;
 import persistence.ScenarioContext;
 
 import java.net.MalformedURLException;
@@ -60,6 +42,9 @@ public class DriverFactory extends CommonMethods {
     protected static DentalReferralPage _DentalReferralPage;
     protected static VisionReferralPage _VisionReferralPage;
     protected static ReturnChildToCoordinatorPage _ReturnChildToCoordinatorPage;
+    protected static DocumentsPage _DocumentsPage;
+    protected static ExportPage _ExportPage;
+    protected static AddEventPage _AddEventPage;
     public Scenarios scenarios;
     protected static String tagName = "";
     protected static Environment testEnvironment;
@@ -105,6 +90,7 @@ public class DriverFactory extends CommonMethods {
                 System.exit(1);
             }
 
+
             _driver.manage().window().maximize();
             initializePageObjects();
 
@@ -145,6 +131,9 @@ public class DriverFactory extends CommonMethods {
                 _DentalReferralPage=PageFactory.initElements(_driver, DentalReferralPage.class);
                 _VisionReferralPage=PageFactory.initElements(_driver,VisionReferralPage.class);
                 _ReturnChildToCoordinatorPage=PageFactory.initElements(_driver,ReturnChildToCoordinatorPage.class);
+                _DocumentsPage=PageFactory.initElements(_driver,DocumentsPage.class);
+                _ExportPage=PageFactory.initElements(_driver,ExportPage.class);
+                _AddEventPage=PageFactory.initElements(_driver,AddEventPage.class);
             } catch (Exception e) {
                 Assert.assertTrue(false, "Page object initialization failed");
             } finally {

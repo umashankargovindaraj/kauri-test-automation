@@ -23,8 +23,15 @@ public class ReturnChildToCoordinatorPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//span[@id='ctl00__pageContentPlaceHolder__allocationHistory__allocations_repeater_ctl00__pageLink__linkLabel']")
     private WebElement verifyCoordinatorReturnConfimationText;
-//input[@id='ctl00__pageContentPlaceHolder__returnRecord__returnRecordButton']
 
+    @FindBy(how = How.XPATH, using = "//span[@id='ctl00__LeadProvider__text']")
+    private WebElement providerNotesLink;
+
+    @FindBy(how = How.XPATH, using = "//textarea[@id='ctl00__pageContentPlaceHolder__urgentNotes__notes__appendedNotes']")
+    private WebElement providerNotes;
+
+    @FindBy(how = How.XPATH, using = "//input[@id='ctl00__saveBtn']")
+    private WebElement providerNotesSaveButton;
 
     public void returnChildToCoordinator() throws InterruptedException, AWTException {
         waitAndClickElement(allocationHistoryLink);
@@ -38,8 +45,14 @@ public class ReturnChildToCoordinatorPage extends BasePage {
         verifyTextPartially(verifyCoordinatorReturnConfimationText,getAppData().getElement("RETURNCHILDTOCOORDINATOR","VERIFYTEXT"));
         System.out.println("Status Of the Questionnaire:" + verifyCoordinatorReturnConfimationText.getText());
 
-
     }
 
+    public void enterProviderNotes(){
+        waitAndClickElement(providerNotesLink);
+        sendKeysToWebElement(providerNotes,getAppData().getElement("RETURNCHILDTOCOORDINATOR","PROVIDERNOTES"));
+//        sendKeysToWebElement(providerNotes,"HELLO");
+        waitAndClickElement(providerNotesSaveButton);
+
+    }
 
 }

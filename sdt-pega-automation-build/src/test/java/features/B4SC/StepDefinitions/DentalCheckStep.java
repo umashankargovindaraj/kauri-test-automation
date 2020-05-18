@@ -1,7 +1,10 @@
 package features.B4SC.StepDefinitions;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.When;
 import libs.DriverFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class DentalCheckStep extends DriverFactory {
 
@@ -15,4 +18,5 @@ public class DentalCheckStep extends DriverFactory {
     public void fillDentalDetailsAndSaveThenConfirmStatusIsInProgressInBSchoolChecksOverviewPage(int arg0) {
         _DentalCheckPage.dentalChecksReferred();
     }
+
 }

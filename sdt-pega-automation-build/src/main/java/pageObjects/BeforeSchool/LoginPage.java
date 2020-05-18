@@ -78,12 +78,12 @@ public class LoginPage extends BasePage {
         waitAndClickElement(organisationOkButton);
     }
      public void chooseCoordinatorLocalAdmin(){
-                selectFromDropDownbyValue(organisation,"Auckland DHB");
+        selectFromDropDownbyValue(organisation,"Auckland DHB");
          waitAndClickElement(organisationOkButton);
             }
 
-            public void logoutApplication() {
-        waitAndClickElement(logOutButton);
+            public void logoutApplication() throws InterruptedException {
+                waitAndclickElementUsingJS(logOutButton);
 //                logOutButton.click();
             }
     }

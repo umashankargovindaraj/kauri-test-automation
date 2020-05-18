@@ -189,8 +189,8 @@ public class SearchPage extends BasePage {
 
     public void searchWithNHINumber(){
 
-      String storedNhiNumber=getAppData().getFromMap("NHI_NUMBER");  /* used when creating new NHI number from scratch */
-        //String storedNhiNumber="APA2251";  /* hardcode NHI number for intermediate test */
+        String storedNhiNumber=getAppData().getFromMap("NHI_NUMBER");  /* used when creating new NHI number from scratch */
+//        String storedNhiNumber="APA2251";  /* hardcode NHI number for intermediate test */
         System.out.println("Stored NHI Number"+storedNhiNumber);
         managementNhi.sendKeys(storedNhiNumber);
 //        waitAndClickElement(searchAllDHBbutton);

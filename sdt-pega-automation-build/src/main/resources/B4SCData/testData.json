@@ -5,7 +5,9 @@
   },
   "CREATE_CHILD": {
     "DOB": "10/04/2015",
-    "ETHNICITY1": "Tongan"
+    "ETHNICITY1": "Tongan",
+    "ETHNICITY2": "Indian",
+    "DATEOFDEATH" : "(deceased)"
   },
   "CONSENT": {
     "DATE": "07/01/2020",
@@ -33,7 +35,7 @@
     "WEIGHT": "15",
     "DATEENTERED": "20/04/2020",
     "NOTES": "Growth Check Completed",
-    "DATECOMPLETED": "23/04/2020"
+    "DATECOMPLETED": "20/04/2020"
   },
   "IMMUNISATION": {
     "DATECOMPLETED": "23/04/2020",
@@ -91,8 +93,15 @@
   "RETURNCHILDTOCOORDINATOR": {
     "PROVIDERCONTACTNUMBER": "0220986512",
     "REASONFORRETURNINGCHILD" : "Return Child to Co-ordinator thru automation script",
-    "VERIFYTEXT" : "Allocated To: Cherri Owen (UmaProvider), Allocated By: Cherri Owen"
+    "VERIFYTEXT" : "Allocated To: Cherri Owen (UmaProvider), Allocated By: Cherri Owen",
+    "PROVIDERNOTES": "Child notes"
+  },
+
+  "DOCUMENTSPAGE": {
+    "FILENAME": "uma",
+    "EXTENSION": "pdf"
   }
-}
+
+  }
 
 

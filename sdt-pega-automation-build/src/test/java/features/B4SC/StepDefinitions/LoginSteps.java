@@ -31,7 +31,7 @@ public class LoginSteps extends DriverFactory {
     }
 
     @And("logout from current user")
-    public void logoutFromCurrentUser() {
+    public void logoutFromCurrentUser() throws InterruptedException {
         _loginPage.logoutApplication();
     }
 }

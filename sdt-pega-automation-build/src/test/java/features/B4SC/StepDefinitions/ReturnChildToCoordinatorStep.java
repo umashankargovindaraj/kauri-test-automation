@@ -11,4 +11,9 @@ public class ReturnChildToCoordinatorStep extends DriverFactory {
     public void clickAllocationHistoryLinkInChildInformationPageAndFillReturnChildToCoordinatorFields() throws AWTException, InterruptedException {
         _ReturnChildToCoordinatorPage.returnChildToCoordinator();
     }
+
+    @And("click Provider Notes link and provide a standard note and click save button")
+    public void clickProviderNotesLinkAndProvideAStandardNoteAndClickSaveButton() {
+        _ReturnChildToCoordinatorPage.enterProviderNotes();
+    }
 }

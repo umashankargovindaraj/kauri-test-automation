@@ -37,17 +37,6 @@ public class B4SCHooks extends DriverFactory {
     @Before
     public void setup(Scenario cukeScenarioObj) throws IOException {
         cukeScenario = cukeScenarioObj;
-        /*boolean tagFound = false;
-        for (String tag : cukeScenario.getSourceTagNames()) {
-            if (tag.toLowerCase().contains("scenario_")) {
-                scenarioName = tag.substring(1);
-                tagFound = true;
-            }
-        }
-        if (!tagFound) {
-            System.out.println("Scenario tag not set. Please set a tag '@Scenario_<scenarioName> for the scenario");
-            System.exit(1);
-        }*/
         _driver = getWebDriver(cukeScenario.getName(), scenarioName);
         _persistentData.setContext("testCase", scenarioName);
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
