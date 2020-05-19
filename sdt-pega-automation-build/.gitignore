@@ -1,6 +1,0 @@
-/target/
-*.iml
-/.idea/
-/Reports/
-**/.log
-docker-compose-files/*

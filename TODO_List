@@ -1,4 +1,0 @@
-Workaround for Tab and nexsus 9 devices(when it is tab convert mobile element to web element for all lookups)
-Workaround for ActionClick in android(unable to enter reporter email hence performing actionClick)
-Workaround for exception - rg.openqa.selenium.UnsupportedCommandException: Window related commands are currently not supported for android devices.- for all android devices on browserstack except OS version
-8.0 - disabled scrollToElement() on entering time for android devices only
