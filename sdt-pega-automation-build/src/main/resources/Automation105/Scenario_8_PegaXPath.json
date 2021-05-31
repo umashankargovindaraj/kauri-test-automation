@@ -1,0 +1,106 @@
+{
+    "eventTime": {
+        "startDate": "skip",
+        "startTime": "skip",
+        "endDate": "skip",
+        "endTime": "skip"
+    },
+    "eventLocation": {
+        "locationType": "LocationType.LocationTypeIndicator",
+        "nameOfOrganisation": "LocationType.LocationDetails.LocationName",
+        "address": "LocationType.LocationDetails.Address.AddressCSV",
+        "proximity": "LocationType.LocationDetails.Proximity",
+        "additionalDetails": "LocationType.LocationDetails.AdditonalLocationInfo"
+    },
+    "lostItem_1": {
+        "whatWasLost": "Item[0].ItemName",
+        "ID": "Item[0].SerialNumber",
+        "valueOfItem": "Item[0].ItemValueDoller",
+        "describeLostItem": "Item[0].ItemDescription",
+        "owner": {
+            "value": "Item[0].WhoOwnsIt"
+        }
+    },
+    "lostItem_2": {
+        "whatWasLost": "Item[1].ItemName",
+        "ID": "Item[1].SerialNumber",
+        "valueOfItem": "Item[1].ItemValueDoller",
+        "describeLostItem": "Item[1].ItemDescription",
+        "owner": {
+            "value": "Item[1].WhoOwnsIt",
+            "firstName": "Item[1].SomebodyOwns.FirstName",
+            "middleName": "Item[1].SomebodyOwns.MiddleName",
+            "lastName": "Item[1].SomebodyOwns.SurName",
+            "age": "Item[1].SomebodyOwns.AgeOrBirth",
+            "gender": "Item[1].SomebodyOwns.Gender",
+            "howAreTheyRelated": "Item[1].SomebodyOwns.Relation",
+            "emailAddress": "skip",
+            "phoneType": "Item[1].SomebodyOwns.Phones[0].PhoneType",
+            "country": "skip",
+            "area": "Item[1].SomebodyOwns.Phones[0].AreaCodeText",
+            "number": "Item[1].SomebodyOwns.Phones[0].PhoneNumberText",
+            "addressType": "Item[1].SomebodyOwns.AddressType",
+            "manualAddress": {
+                "unitType": "Item[1].SomebodyOwns.FreeFormAddress.UnitType",
+                "unitNumber": "Item[1].SomebodyOwns.FreeFormAddress.UnitNumber",
+                "streetNumber": "Item[1].SomebodyOwns.FreeFormAddress.StreetNumber",
+                "streetName": "Item[1].SomebodyOwns.FreeFormAddress.StreetName",
+                "streetType": "Item[1].SomebodyOwns.FreeFormAddress.StreetType",
+                "streetDirection": "Item[1].SomebodyOwns.FreeFormAddress.StreetDirectionSuffix",
+                "townSuburb": "Item[1].SomebodyOwns.FreeFormAddress.TownSuburb"
+            }
+        }
+    },
+    "lostItem_3": {
+        "whatWasLost": "Item[2].ItemName",
+        "ID": "Item[2].SerialNumber",
+        "valueOfItem": "Item[2].ItemValueDoller",
+        "describeLostItem": "Item[2].ItemDescription",
+        "owner": {
+            "value": "Item[2].WhoOwnsIt",
+            "organisationName": "Item[2].OrganisationOwn.Organization.OrganisationName",
+            "phoneType": "Item[2].OrganisationOwn.Phones[0].PhoneType",
+            "country": "skip",
+            "area": "Item[2].OrganisationOwn.Phones[0].AreaCodeText",
+            "number": "Item[2].OrganisationOwn.Phones[0].PhoneNumberText",
+            "manualAddress": {
+                "unitType": "Item[2].OrganisationOwn.FreeFormAddress.UnitType",
+                "unitNumber": "Item[2].OrganisationOwn.FreeFormAddress.UnitNumber",
+                "streetNumber": "Item[2].OrganisationOwn.FreeFormAddress.StreetNumber",
+                "streetName": "Item[2].OrganisationOwn.FreeFormAddress.StreetName",
+                "streetType": "Item[2].OrganisationOwn.FreeFormAddress.StreetType",
+                "streetDirection": "Item[2].OrganisationOwn.FreeFormAddress.StreetDirectionSuffix",
+                "townSuburb": "Item[2].OrganisationOwn.FreeFormAddress.TownSuburb"
+            }
+        }
+    },
+    "whatHappened": {
+        "describeWhatHappened": "Narrative.NarrativeText"
+    },
+    "attachmentsPDF": {
+        "fileName": "FileUpload[0].pyFileName",
+        "description": "FileUpload[0].pyNote"
+    },
+    "attachmentDescription": {
+        "description": "CCTVFootageAttachmentDescription"
+    },
+    "reporterDetails": {
+        "firstName": "Person.FirstName",
+        "middleName": "Person.MiddleName",
+        "lastName": "Person.SurName",
+        "previousFirstName": "Person.AlternativeName.FirstName",
+        "previousMiddleName": "Person.AlternativeName.MiddleName",
+        "previousLastName": "Person.AlternativeName.LastName",
+        "dob": "skip",
+        "gender": "Person.Gender",
+        "driverLicence": "Person.LicenseNumber",
+        "preferredContact": "Person.PreferedContact",
+        "emailAddress": "Person.EmailAddress[0].Email.pxObjClass",
+        "phoneType": "Person.Phones[0].PhoneType",
+        "countryCode": "skip",
+        "area": "Person.Phones[0].AreaCodeText",
+        "phoneNumber": "Person.Phones[0].PhoneNumberText",
+        "addressType": "Person.AddressType",
+        "address": "Person.Address.AddressCSV"
+    }
+}

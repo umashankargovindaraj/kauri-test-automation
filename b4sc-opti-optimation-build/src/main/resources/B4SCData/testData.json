@@ -7,14 +7,14 @@
     "DOB": "10/04/2015",
     "ETHNICITY1": "Tongan",
     "ETHNICITY2": "Indian",
-    "DATEOFDEATH" : "(deceased)"
+    "DECEASEDSTATUS" : "(deceased)"
   },
   "CONSENT": {
     "DATE": "07/01/2020",
     "SURNAME": "Test"
   },
   "CAREGIVER": {
-    "RELATIONSHIP": "Mother"
+    "RELATIONSHIP": "umashankar"
   },
   "CHILDHEALTHQUESTIONAIRE": {
     "MEDICALCENTREPHONE": "0220982310",

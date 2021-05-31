@@ -1,0 +1,65 @@
+{
+  "eventTime": {
+    "startDate": "02/01/2020",
+    "startTime": "12:00 AM",
+    "endDate": "02/01/2020",
+    "endTime": "1:00 AM"
+  },
+  "eventLocation": {
+    "locationType": "An organisation",
+    "nameOfOrganisation": "ABC Organisation",
+    "address": "5489 KAWHATAU VALLEY ROAD, MANGAWEKA, RANGITIKEI DISTRICT 4797",
+    "proximity": "Nearby",
+    "additionalDetails": "Testing additional details of location for Scenario 13.",
+    "isVehicleStoleIndicator": "no"
+  },
+  "whoWasInvolved": {
+    "whoHasDoneThis": {
+      "value": "no"
+    },
+    "describePerson": {
+      "value": "yes",
+      "descriptionOfOffender": "He is tall of about 170-180 cm height, he was wearing cap"
+    },
+    "offenderVehicle": {
+      "value": "no"
+    },
+    "witnessInformation": {
+      "value": "no"
+    }
+  },
+  "whatHappened": {
+    "describeWhatHappened": "This is a description of what happened on how the vehicle stolen in scenario 13.",
+    "reasonWhyTheyDidThis": "This is description for reasonWhyTheyDidThis for scenario 13"
+  },
+  "stolenItem_1": {
+    "stolenItem": "not found",
+    "stolenItemManual": "Stolen Item manual entry",
+    "owner": {
+      "value": "I do"
+    },
+    "itemID": "ID12345",
+    "itemValue": "500",
+    "description": "Item with value of 500 NZD"
+  },
+  "reporterDetails": {
+    "firstName": "Darius",
+    "middleName": "Rankin",
+    "lastName": "Morales",
+    "previousFirstName": "Dar",
+    "previousMiddleName": "R",
+    "previousLastName": "Mora",
+    "dob": "11/11/1911",
+    "gender": "Gender Diverse",
+    "driverLicence": "DarisusLic",
+    "preferredContact": "Phone",
+    "emailAddress": "rijuvijayan@gmail.com",
+    "phoneType": "Work",
+    "countryCode": "New Zealand - 64",
+    "area": "4321",
+    "phoneNumber": "312312",
+    "addressType": "Home address",
+    "address": "5932 SH 10, AWANUI, FAR NORTH DISTRICT 0483",
+    "victimSupport": "yes"
+  }
+}

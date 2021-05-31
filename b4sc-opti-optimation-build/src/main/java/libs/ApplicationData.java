@@ -12,7 +12,9 @@ public class ApplicationData {
     ObjectMapper mapper = new ObjectMapper();
 //    String fileDir = getPropertyValue("testDataPath");
     String fileDir = "src/main/resources/B4SCData/";
+
     private Map<String, Map<String,String>> applicationDataMap = new HashMap<>();
+
     private Map<String,String> transientDataMap  = new HashMap<>();
 
     public ApplicationData() {

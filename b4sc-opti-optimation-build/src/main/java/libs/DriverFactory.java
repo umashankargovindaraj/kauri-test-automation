@@ -7,13 +7,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import pageObjects.BeforeSchool.*;
+import pageObjects.Accuro.*;
 import persistence.ScenarioContext;
 
 import java.net.MalformedURLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
 
 public class DriverFactory extends CommonMethods {
 
@@ -46,6 +43,9 @@ public class DriverFactory extends CommonMethods {
     public Scenarios scenarios;
     protected static String tagName = "";
     protected static Environment testEnvironment;
+    protected static AccuroLoginPage _AccuroLoginPage;
+    protected static AccuroSearchPage _AccuroSearchPage;
+
 
     public DriverFactory() {
         super();
@@ -106,6 +106,9 @@ public class DriverFactory extends CommonMethods {
                 _DocumentsPage=PageFactory.initElements(_driver,DocumentsPage.class);
                 _ExportPage=PageFactory.initElements(_driver,ExportPage.class);
                 _AddEventPage=PageFactory.initElements(_driver,AddEventPage.class);
+                _AccuroLoginPage=PageFactory.initElements(_driver,AccuroLoginPage.class);
+                _AccuroSearchPage=PageFactory.initElements(_driver,AccuroSearchPage.class);
+
             } catch (Exception e) {
                 Assert.assertTrue(false, "Page object initialization failed");
             } finally {

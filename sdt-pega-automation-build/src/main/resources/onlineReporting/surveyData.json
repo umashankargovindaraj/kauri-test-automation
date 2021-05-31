@@ -1,0 +1,17 @@
+{
+  "Question1": {
+    "text": "mandatory|data|How satisfied or dissatisfied were you with your use of NZ Police online reporting service?",
+    "choices": "mandatory|list|Very satisfied~Satisfied~Neither satisfied nor dissatisfied~Dissatisfied~Strongly dissatisfied"
+  },
+  "Question2": {
+    "text": "mandatory|data|How likely or unlikely are you to use the NZ Police online reporting should you need to report an incident to NZ Police in the future?",
+    "choices": "mandatory|list|Very likely~Likely~Neither likely nor unlikely~Unlikely~Very unlikely"
+  },
+  "Question3": {
+    "text": "mandatory|data|How likely or unlikely are you to recommend a friend or family member use NZ Police Online Reporting to report an incident to NZ Police?",
+    "choices": "mandatory|list|Very Likely~Likely~Neither likely nor unlikely~Unlikely~Very unlikely"
+  },
+  "additionalComments": {
+    "comments": "mandatory|ans|250"
+  }
+}

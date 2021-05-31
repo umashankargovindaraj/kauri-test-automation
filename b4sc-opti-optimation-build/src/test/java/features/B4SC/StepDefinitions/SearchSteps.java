@@ -4,8 +4,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import libs.DriverFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.BeforeSchool.SearchPage;
 
 public class SearchSteps extends DriverFactory {
 

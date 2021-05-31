@@ -1,0 +1,59 @@
+{
+  "eventTime": {
+    "startDate": "skip",
+    "startTime": "skip"
+  },
+  "eventLocation": {
+    "locationType": "LocationType.LocationTypeIndicator",
+    "nameOfOrganisation": "LocationType.LocationDetails.LocationName",
+    "manualAddress": {
+      "unitType": "LocationType.LocationDetails.FreeFormAddress.UnitType",
+      "unitNumber": "LocationType.LocationDetails.FreeFormAddress.UnitNumber",
+      "streetNumber": "LocationType.LocationDetails.FreeFormAddress.StreetNumber",
+      "streetName": "LocationType.LocationDetails.FreeFormAddress.StreetName",
+      "streetType": "LocationType.LocationDetails.FreeFormAddress.StreetType",
+      "streetDirection": "LocationType.LocationDetails.FreeFormAddress.StreetDirectionSuffix",
+      "townSuburb": "LocationType.LocationDetails.FreeFormAddress.TownSuburb"
+    },
+    "proximity": "LocationType.LocationDetails.Proximity",
+    "additionalDetails": "LocationType.LocationDetails.AdditonalLocationInfo"
+  },
+  "whatHappened": {
+    "describeWhatHappened": "Narrative.NarrativeText"
+  },
+  "attachmentsJPE": {
+    "fileName": "FileUpload[0].pyFileName",
+    "description": "FileUpload[0].pyNote"
+  },
+  "attachmentsGIF": {
+    "fileName": "FileUpload[1].pyFileName",
+    "description": "FileUpload[1].pyNote"
+  },
+  "attachmentsDOC": {
+    "fileName": "FileUpload[2].pyFileName",
+    "description": "FileUpload[2].pyNote"
+  },
+  "attachmentDescription": {
+    "description": "CCTVFootageAttachmentDescription"
+  },
+  "reporterDetails": {
+    "firstName": "Person.FirstName",
+    "middleName": "Person.MiddleName",
+    "lastName": "Person.SurName",
+    "previousFirstName": "Person.AlternativeName.FirstName",
+    "previousMiddleName": "Person.AlternativeName.MiddleName",
+    "previousLastName": "Person.AlternativeName.LastName",
+    "dob": "skip",
+    "gender": "Person.Gender",
+    "driverLicence": "Person.LicenseNumber",
+    "preferredContact": "Person.PreferedContact",
+    "emailAddress": "Person.EmailAddress[0].Email.pxObjClass",
+    "phoneType": "Person.Phones[0].PhoneType",
+    "countryCode": "skip",
+    "area": "Person.Phones[0].AreaCodeText",
+    "phoneNumber": "Person.Phones[0].PhoneNumberText",
+    "addressType": "Person.AddressType",
+    "address": "Person.Address.AddressCSV",
+    "victimSupport": "Person.VictimSupport"
+  }
+}

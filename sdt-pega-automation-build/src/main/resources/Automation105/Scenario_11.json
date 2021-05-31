@@ -1,0 +1,58 @@
+{
+  "eventTime": {
+    "startDate": "01/01/2020",
+    "startTime": "12:00 AM"
+  },
+  "eventLocation": {
+    "locationType": "Educational Facility",
+    "nameOfEducationalFacility": "Test Educational Facility",
+    "address": "699 SH 2, OTANE, CENTRAL HAWKES BAY DISTRICT 4276",
+    "proximity": "At",
+    "additionalDetails": "Testing additional details of location for Scenario 11."
+  },
+  "lostItem": {
+    "whatWasLost": "not found",
+    "lostItemManual": "Lost item manual entry",
+    "whoOwnsIt": "I do",
+    "ID": "serialNumberOfLostItem",
+    "valueOfItem": "1000",
+    "describeLostItem": "This is a description of item that was lost in scenario 11. This is a description of item that was lost in scenario 11. This is a description of item that was lost in scenario 11.This is a description of item that was lost in scenario 11. scenario 11 test"
+  },
+  "whatHappened": {
+    "describeWhatHappened": "This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. This is a description of what happened on how the item was lost in scenario 11. "
+  },
+  "attachmentsDOCX": {
+    "fileName": "Sample_DOCX.docx",
+    "description": "attachmentDOCXDescription1"
+  },
+  "attachmentsTXT": {
+    "fileName": "Sample_TXT.txt",
+    "description": "attachmentTXTDescription2"
+  },
+  "attachmentsXLS": {
+    "fileName": "Sample_XLS.xls",
+    "description": "attachmentXLSDescription3"
+  },
+  "attachmentDescription": {
+    "description": "Testing attachment description"
+  },
+  "reporterDetails": {
+    "firstName": "Martin",
+    "middleName": "David",
+    "lastName": "Scorsecce",
+    "previousFirstName": "pMartin",
+    "previousMiddleName": "pDavid",
+    "previousLastName": "pScor",
+    "dob": "15/10/1999",
+    "gender": "Female",
+    "driverLicence": "MartinDavid",
+    "preferredContact": "Phone",
+    "emailAddress": "rijuvijayan@gmail.com",
+    "phoneType": "Work",
+    "countryCode": "New Zealand - 64",
+    "area": "0471",
+    "phoneNumber": "2223333",
+    "addressType": "Home address",
+    "address": "1749 MATAURI BAY ROAD, MATAURI BAY, FAR NORTH DISTRICT 0478"
+  }
+}

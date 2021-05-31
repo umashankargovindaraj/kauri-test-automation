@@ -1,0 +1,65 @@
+{
+  "eventTime": {
+    "startDate": "skip",
+    "startTime": "skip",
+    "endDate": "skip",
+    "endTime": "skip"
+  },
+  "eventLocation": {
+    "locationType": "LocationType.LocationTypeIndicator",
+    "nameOfOrganisation": "LocationType.LocationDetails.LocationName",
+    "address": "LocationType.LocationDetails.Address.AddressCSV",
+    "proximity": "LocationType.LocationDetails.Proximity",
+    "additionalDetails": "LocationType.LocationDetails.AdditonalLocationInfo",
+    "isVehicleStoleIndicator": "Stolenfromavehicleindicator"
+  },
+  "whoWasInvolved": {
+    "whoHasDoneThis": {
+      "value": "Offender.KnownIndicator"
+    },
+    "describePerson": {
+      "value": "Offender.DescriptionQuestion",
+      "descriptionOfOffender": "Offender.OffenderDescription"
+    },
+    "offenderVehicle": {
+      "value": "Offender.SeenOffender"
+    },
+    "witnessInformation": {
+      "value": "Offender.Witness.WitnessIndicator"
+    }
+  },
+  "whatHappened": {
+    "describeWhatHappened": "Narrative.NarrativeText",
+    "reasonWhyTheyDidThis": "Narrative.ReasonWhy"
+  },
+  "stolenItem_1": {
+    "stolenItem": "skip",
+    "stolenItemManual": "Item[0].ItemName",
+    "owner": {
+      "value": "Item[0].WhoOwnsIt"
+    },
+    "itemID": "Item[0].SerialNumber",
+    "itemValue": "Item[0].ItemValueDoller",
+    "description": "Item[0].ItemDescription"
+  },
+  "reporterDetails": {
+    "firstName": "Person.FirstName",
+    "middleName": "Person.MiddleName",
+    "lastName": "Person.SurName",
+    "previousFirstName": "Person.AlternativeName.FirstName",
+    "previousMiddleName": "Person.AlternativeName.MiddleName",
+    "previousLastName": "Person.AlternativeName.LastName",
+    "dob": "skip",
+    "gender": "Person.Gender",
+    "driverLicence": "Person.LicenseNumber",
+    "preferredContact": "Person.PreferedContact",
+    "emailAddress": "Person.EmailAddress[0].Email.pxObjClass",
+    "phoneType": "Person.Phones[0].PhoneType",
+    "countryCode": "skip",
+    "area": "Person.Phones[0].AreaCodeText",
+    "phoneNumber": "Person.Phones[0].PhoneNumberText",
+    "addressType": "Person.AddressType",
+    "address": "Person.Address.AddressCSV",
+    "victimSupport": "Person.VictimSupport"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "eventTime": {
+    "startDate": "01/01/2020",
+    "startTime": "12:00 AM",
+    "endDate": "01/01/2020",
+    "endTime": "1:00 AM"
+  },
+  "eventLocation": {
+    "locationType": "A shop/business",
+    "nameOfShop": "Test Shop",
+    "address": "3453 CAPE PALLISER ROAD, CAPE PALLISER, SOUTH WAIRARAPA DISTRICT 5772",
+    "proximity": "Nearby",
+    "additionalDetails": "Testing additional details of location for Scenario 6."
+  },
+  "whoWasInvolved": {
+    "whoHasDoneThis": {
+      "value": "yes",
+      "detailAboutOffender": "A male stranger with monochrome dress",
+      "personIs": "Family member/whanau",
+      "other": "He has a scooter"
+    },
+    "describePerson": {
+      "value": "No"
+    },
+    "offenderVehicle": {
+      "value": "No"
+    },
+    "witnessInformation": {
+      "value": "No"
+    }
+  },
+  "damagedVehicles_1": {
+    "licencePlate": "AB1234",
+    "damagedVehicleLocation": "Parked on a driveway",
+    "owner": {
+      "value": "I do"
+    },
+    "whereWasVehicleWhenDamaged": "Parked in a garage",
+    "vehicleMoved": "Yes",
+    "ignitionTampered": "Yes",
+    "howWasItDamaged": "glass broken passenger rear quarter light window1",
+    "vehicleType": "Commercial Vehicle",
+    "vehicleMake": "Toyota",
+    "identifyingFeatures": "yellow"
+  },
+  "damagedVehicles_2": {
+    "licencePlate": "123OU1",
+    "owner": {
+      "value": "Somebody else does",
+      "firstName": "o'conorJÙ-ço ÃoleÕo'conor",
+      "middleName": "ñ'É-cã",
+      "lastName": "JÙ-çoo'reilly",
+      "age": "29",
+      "gender": "Female",
+      "howAreTheyRelated": "Husband,Wife",
+      "emailAddress": "damagedVehicle3@gmail.com",
+      "phoneType": "Mobile",
+      "country": "Netherlands - 31",
+      "area": "81",
+      "number": "334455",
+      "addressType": "Contact address",
+      "victimSupportFlag": "yes",
+      "manualAddress": {
+        "unitType": "Tower",
+        "unitNumber": "22",
+        "streetNumber": "101",
+        "streetName": "Bridgestone ave",
+        "streetType": "Anchorage",
+        "streetDirection": "North East",
+        "townSuburb": "Milford Sound, Southland District"
+      }
+    },
+    "vehicleType": "Commercial Vehicle",
+    "vehicleMake": "Toyota",
+    "identifyingFeatures": "yellow",
+    "whereWasVehicleWhenDamaged": "Parked in a garage",
+    "howWasItDamaged": "glass broken passenger rear quarter light window1",
+    "vehicleMoved": "Yes",
+    "ignitionTampered": "Yes"
+  },
+  "damagedVehicles_3": {
+    "licencePlate": "UR1234",
+    "owner": {
+      "value": "An organisation does",
+      "organisationName": "Damaged Vehicle Company",
+      "phoneType": "Home",
+      "country": "New Zealand - 64",
+      "area": "1111",
+      "number": "44444",
+      "manualAddress": {
+        "unitType": "Apartment",
+        "unitNumber": "584",
+        "streetNumber": "345",
+        "streetName": "Khandallah road",
+        "streetType": "Road Extension",
+        "streetDirection": "North West",
+        "townSuburb": "Invercargill Airport, Invercargill City"
+      }
+    },
+    "vehicleType": "Commercial Vehicle",
+    "vehicleMake": "Toyota",
+    "identifyingFeatures": "yellow",
+    "whereWasVehicleWhenDamaged": "Parked in a garage",
+    "howWasItDamaged": "glass broken passenger rear quarter light window1",
+    "vehicleMoved": "Yes",
+    "ignitionTampered": "Yes"
+  },
+  "damagedItem_1": {
+    "damagedItem": "not found",
+    "damagedItemManual": "Damaged item manual entry",
+    "owner": {
+      "value": "I do"
+    },
+    "howWasItDamaged": "I was walking on the Street and it fell down"
+  },
+  "damagedItem_2": {
+    "damagedItem": "Cheque (Bank Account Book)",
+    "owner": {
+      "value": "Somebody else does",
+      "firstName": "Aiméeo'conorJÙ-ço",
+      "middleName": "élià'-Ðo'conor.",
+      "lastName": "o'conor.o'élià",
+      "age": "35",
+      "gender": "Male",
+      "howAreTheyRelated": "Step Parent",
+      "emailAddress": "damagedItem2@gmail.com",
+      "phoneType": "Mobile",
+      "country": "Netherlands - 31",
+      "area": "33",
+      "number": "654321",
+      "addressType": "Work address",
+      "victimSupportFlag": "no",
+      "manualAddress": {
+        "unitType": "Apartment",
+        "unitNumber": "10",
+        "streetNumber": "11",
+        "streetName": "Kristal road",
+        "streetType": "Rampart",
+        "streetDirection": "North East",
+        "townSuburb": "Richmond Downs, Matamata-Piako District"
+      }
+    },
+    "howWasItDamaged": "Someone else cheque damaged"
+  },
+  "damagedItem_3": {
+    "damagedItem": "Wallet",
+    "owner": {
+      "value": "An organisation does",
+      "organisationName": "Damaged Item Company",
+      "phoneType": "Home",
+      "country": "New Zealand - 64",
+      "area": "1111",
+      "number": "44444",
+      "manualAddress": {
+        "unitType": "Apartment",
+        "unitNumber": "400",
+        "streetNumber": "500",
+        "streetName": "Hobitton road",
+        "streetType": "Tradersway",
+        "streetDirection": "South",
+        "townSuburb": "Matamata, Matamata-Piako District"
+      }
+    },
+    "howWasItDamaged": "a tree fell down and broke it",
+    "damagedItemManual": "a thing that can fly"
+  },
+  "whatHappened": {
+    "describeWhatHappened": "This is a description of what happened on how the item was lost in Scenario 6. This is a description of what happened on how the item was lost in Scenario 6.",
+    "reasonWhyTheyDidThis": "This is a reason of why they did this. Scenario 6"
+  },
+  "attachmentsXLSX": {
+    "fileName": "Sample_XLSX.xlsx",
+    "description": "attachmentXLSXDescription1"
+  },
+  "attachmentsCSV": {
+    "fileName": "Sample_CSV.csv",
+    "description": "attachmentCSVDescription2"
+  },
+  "attachmentsPPT": {
+    "fileName": "Sample_PPT.ppt",
+    "description": "attachmentPPTDescription3"
+  },
+  "attachmentDescription": {
+    "description": "Testing attachment description"
+  },
+  "reporterDetails": {
+    "firstName": "River",
+    "middleName": "Jason",
+    "lastName": "Wicks",
+    "previousFirstName": "pRiver",
+    "previousMiddleName": "pJason",
+    "previousLastName": "pWicks",
+    "dob": "16/07/1999",
+    "gender": "Female",
+    "driverLicence": "Riverlicen",
+    "preferredContact": "Phone",
+    "emailAddress": "rijuvijayan@gmail.com",
+    "phoneType": "Work",
+    "countryCode": "New Zealand - 64",
+    "area": "027",
+    "phoneNumber": "5323423",
+    "addressType": "Home address",
+    "address": "4311 HALDON ROAD, TEKAPO, MACKENZIE DISTRICT 7999",
+    "victimSupport": "yes"
+  }
+}
