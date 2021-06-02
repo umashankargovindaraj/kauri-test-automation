@@ -1,100 +1,55 @@
 {
-  "LOGIN": {
-    "NAME": "LancashireA",
-    "PASS_WORD": "Welcome13"
+
+  "FNAMESEARCH": {
+    "FNVALUE": "umashankar"
   },
-  "CREATE_CHILD": {
-    "DOB": "10/04/2015",
-    "ETHNICITY1": "Tongan",
-    "ETHNICITY2": "Indian",
-    "DECEASEDSTATUS" : "(deceased)"
+
+  "LNAMESEARCH": {
+    "LNVALUE": "govindaraj"
   },
-  "CONSENT": {
-    "DATE": "07/01/2020",
-    "SURNAME": "Test"
+
+  "DOBSEARCH": {
+    "DOBVALUE": "10/01/2000"
   },
-  "CAREGIVER": {
-    "RELATIONSHIP": "umashankar"
+
+  "PHONESEARCH": {
+    "PHVALUE": "+64220986545"
   },
-  "CHILDHEALTHQUESTIONAIRE": {
-    "MEDICALCENTREPHONE": "0220982310",
-    "QUESTIONAIREOUTCOME" : "Completed - Advice Given",
-    "STATUSCOMPLETIONVALIDATION" : "Completed",
-    "DATE": "07/04/2020",
-    "NOTES": "Test Questionaire completed"
+
+  "EMAILSEARCH": {
+    "EMAILVALUE": "accurokauri@gmail.com"
   },
-  "DENTALCHECK": {
-    "PROGRESSIONOFDECAY": "1",
-    "DATE": "07/04/2020",
-    "NOTES": "Dental Check Completed",
-    "VERIFYCOMPLETED": "Completed",
-    "VERIFYINPROGRESS": "Outcome:Referred"
+
+  "FIRSTANDLASTNAME": {
+    "FNLN": "umashankar govindaraj"
   },
-  "GROWTHCHECK": {
-    "HEIGHT": "100",
-    "WEIGHT": "15",
-    "DATEENTERED": "20/04/2020",
-    "NOTES": "Growth Check Completed",
-    "DATECOMPLETED": "20/04/2020"
+
+  "FIRSTNAMEANDPHONENUMBER": {
+    "FNPHNO": "umashankar +64220986545"
   },
-  "IMMUNISATION": {
-    "DATECOMPLETED": "23/04/2020",
-    "NOTES": "Immunisation Check Completed",
-    "NOTESREFERRED": "Immunisation Check Completed",
-    "VERIFYREFERRED": "Outcome:Referred"
+
+  "LASTNAMEANDPHONENUMBER": {
+    "LNPHNO": "govindaraj +64220986545"
   },
-  "PEDS": {
-    "CIRCLESCORE": "6",
-    "SQUARESCORE": "6",
-    "DATECOMPLETED": "23/04/2020",
-    "NOTES": "PEDS Check Completed"
+
+  "EMAILANDDOB": {
+    "EMDOB": "accurokauri@gmail.com 10/01/2000"
   },
-  "SDQPARENT": {
-    "DATECOMPLETED": "23/04/2020",
-    "NOTES": "Parent Strength and Difficulties Questionaire Check Completed",
-    "VERIFYREFERRED": "Outcome:Referred"
+
+  "FIRSTNAMELASTNAMEANDDOB": {
+    "FNLNDOB": "umashankar govindaraj 10/01/2000"
   },
-  "SDQTEACHER": {
-    "DATECOMPLETED": "23/04/2020",
-    "NOTES": "Teacher Strength and Difficulties Questionaire Check Completed"
+
+  "INVALIDFIRSTNAMELASTNAME": {
+    "FNLNINVALID": "ATTUR SALEMDIST"
   },
-  "VISIONANDHEARING": {
-    "DATECONSENTIMPLIED": "23/04/2020"
+
+  "OUTCOMEFORINVALID": {
+    "ERRMSG": "No results found..."
   },
-  "HEARING": {
-    "DATECOMPLETED": "23/04/2020",
-    "NOTES": "Distance Vision Check Completed",
-    "VERIFYREFERRED": "Outcome:Referred"
-  },
-  "CLOSEB4SCHOOLRECORD": {
-    "NOTES": "All B4School checks completed hence closing child record from B4School Application.",
-    "VERIFYERROR": "Cannot close campaign until all referrals are completed",
-    "VERIFYSTATUSCLOSED": "CLOSED",
-    "PROVIDERCHECKLOCATION" : "General Practice",
-    "VHTCHECKLOCATION" : "General Practice"
-  },
-  "COMMON": {
-    "STATUS": "Completed"
-  },
-  "DENTALREFERRAL": {
-    "REFERREDTO": "Public health",
-    "DATE": "23/04/2020",
-    "NOTES": "Wisdom tooth",
-    "VERIFY": "In Progress",
-    "REFERRALSTATUS" : "Completed",
-    "VERIFYWHETHERCOMPLETED" : "Completed"
-  },
-  "VISIONREFERRAL": {
-    "REFERREDTO": "Eye clinic",
-    "DATE": "23/04/2020",
-    "NOTES": "Wisdom tooth",
-    "VERIFY": "In Progress"
-  },
-  "RETURNCHILDTOCOORDINATOR": {
-    "PROVIDERCONTACTNUMBER": "0220986512",
-    "REASONFORRETURNINGCHILD" : "Return Child to Co-ordinator thru automation script",
-    "VERIFYTEXT" : "Allocated To: Cherri Owen (UmaProvider), Allocated By: Cherri Owen",
-    "PROVIDERNOTES": "Child notes"
+
+  "NAMETITLE": {
+    "TITLE": "Mr"
   },
 
   "DOCUMENTSPAGE": {

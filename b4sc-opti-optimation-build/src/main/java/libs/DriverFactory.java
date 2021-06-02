@@ -45,6 +45,7 @@ public class DriverFactory extends CommonMethods {
     protected static Environment testEnvironment;
     protected static AccuroLoginPage _AccuroLoginPage;
     protected static AccuroSearchPage _AccuroSearchPage;
+    protected static AccuroAddNewMemberPage _AccuroAddNewMemberPage;
 
 
     public DriverFactory() {
@@ -108,6 +109,7 @@ public class DriverFactory extends CommonMethods {
                 _AddEventPage=PageFactory.initElements(_driver,AddEventPage.class);
                 _AccuroLoginPage=PageFactory.initElements(_driver,AccuroLoginPage.class);
                 _AccuroSearchPage=PageFactory.initElements(_driver,AccuroSearchPage.class);
+                _AccuroAddNewMemberPage=PageFactory.initElements(_driver,AccuroAddNewMemberPage.class);
 
             } catch (Exception e) {
                 Assert.assertTrue(false, "Page object initialization failed");
